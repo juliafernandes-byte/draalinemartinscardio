@@ -28,3 +28,7 @@ use the editor.
   own key and store it in Secrets.
 - **Secrets.** Lovable manages them. Do not put secret values in the repo.
 <!-- LOVABLE:END -->
+
+## Project architecture
+- Keep the monitoring product presentation in a browser-safe presentational component; the phone is a noninteractive HTML/CSS illustration, not a working app.
+- Centralize consultation and monitoring WhatsApp destinations in the shared link module so each inquiry retains its intended message.

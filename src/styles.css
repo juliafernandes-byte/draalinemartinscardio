@@ -144,3 +144,36 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 500; }
   padding-block: 4rem;
   @media (min-width: 768px) { padding-block: 6rem; }
 }
+
+:root {
+  --notification-shadow: 0 10px 32px oklch(0.24 0.02 0 / 0.12);
+  --phone-shadow: 0 24px 48px oklch(0.1 0.015 0 / 0.28);
+}
+.hero-notification { box-shadow: var(--notification-shadow); }
+.monitor-phone {
+  width: min(100%, 300px);
+  margin-inline: auto;
+  padding: 9px;
+  border: 1px solid var(--blush);
+  border-radius: 38px;
+  background: var(--ink);
+  box-shadow: var(--phone-shadow);
+}
+.monitor-screen {
+  border-radius: 29px;
+  padding: 14px 17px 22px;
+  background: var(--background);
+  color: var(--foreground);
+}
+.monitor-speaker { width: 64px; height: 5px; margin: 0 auto 12px; border-radius: 8px; background: var(--ink); }
+.monitor-chart { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 12px; }
+.monitor-chart-column { display: flex; flex-direction: column; align-items: center; justify-content: end; gap: 7px; height: 82px; }
+.monitor-bar { width: 100%; max-width: 16px; background: var(--primary); border-radius: 3px 3px 0 0; }
+.monitor-bar-0 { height: 44px; }
+.monitor-bar-1 { height: 60px; }
+.monitor-bar-2 { height: 49px; }
+.monitor-bar-3 { height: 54px; }
+.monitor-bar-4 { height: 38px; }
+.monitor-bar-5 { height: 45px; }
+.monitor-bar-6 { height: 40px; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
