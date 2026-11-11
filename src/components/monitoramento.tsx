@@ -55,9 +55,9 @@ export function Monitoramento() {
       <div className="mx-auto w-full max-w-6xl px-5 md:px-8">
         <div className="grid items-center gap-12 md:grid-cols-[1.2fr_1fr]">
           <div>
-            <span className="inline-block rounded-full border border-blush px-4 py-2 text-sm text-ink-foreground">Exclusivo para pacientes da Dra. Aline</span>
+            <span className="inline-block rounded-full border border-blush px-4 py-2 text-sm text-ink-foreground">Diferencial exclusivo para pacientes</span>
             <p className="eyebrow mt-7 !text-blush">Monitoramento 360°</p>
-            <h2 className="mt-4 text-4xl leading-tight md:text-5xl">Seu coração acompanhado de perto, todos os dias, pela sua médica.</h2>
+            <h2 className="mt-4 text-4xl leading-tight md:text-5xl">E depois da consulta, sua médica continua com você.</h2>
             <p className="mt-6 text-lg leading-relaxed text-ink-foreground/85">O risco não está só na doença — está no intervalo longo entre uma consulta e outra. Com o Monitoramento 360°, a pressão e os seus registros chegam até a Dra. Aline, que acompanha sua evolução e orienta ajustes no momento certo.</p>
             <Button asChild className={`${creamButton} mt-8`}><a href={whatsappMonitoramentoUrl} target="_blank" rel="noopener noreferrer">Quero o Monitoramento 360°<ArrowUpRight aria-hidden /></a></Button>
           </div>
@@ -67,7 +67,7 @@ export function Monitoramento() {
         <div className="mt-16 border-t border-ink-foreground/15 pt-12 md:mt-24">
           <h3 className="text-3xl">Como funciona</h3>
           <div className="mt-8 grid gap-5 md:grid-cols-3">
-            {steps.map(s => <article key={s.n} className="rounded-[20px] border border-ink-foreground/15 p-8"><span className="font-display text-5xl text-blush">{s.n}</span><h4 className="mt-4 font-display text-2xl">{s.title}</h4><p className="mt-3 leading-relaxed text-ink-foreground/85">{s.text}</p></article>)}
+            {steps.map(s => <article key={s.n} className="rounded-[14px] border border-ink-foreground/15 p-8"><span className="font-display text-5xl text-blush">{s.n}</span><h4 className="mt-4 font-display text-2xl">{s.title}</h4><p className="mt-3 leading-relaxed text-ink-foreground/85">{s.text}</p></article>)}
           </div>
         </div>
 
@@ -81,8 +81,8 @@ export function Monitoramento() {
         <div className="mt-16">
           <h3 className="text-3xl">Para quem é</h3>
           <div className="mt-8 grid gap-5 md:grid-cols-2">
-            <article className="rounded-[20px] bg-ink-foreground/[0.06] p-8"><h4 className="font-display text-2xl">Já é paciente da Dra. Aline</h4><p className="mt-3 leading-relaxed text-ink-foreground/85">Ative o Monitoramento 360° e passe a ser acompanhada também entre as consultas.</p><Button variant="link" asChild className="mt-4 h-auto min-h-11 whitespace-normal px-0 text-base text-blush"><a href={whatsappMonitoramentoUrl} target="_blank" rel="noopener noreferrer">Quero ativar<ArrowUpRight aria-hidden /></a></Button></article>
-            <article className="rounded-[20px] bg-ink-foreground/[0.06] p-8"><h4 className="font-display text-2xl">Ainda não é paciente</h4><p className="mt-3 leading-relaxed text-ink-foreground/85">Agende sua consulta inicial e comece seu acompanhamento já com o aplicativo.</p><Button variant="link" asChild className="mt-4 h-auto min-h-11 whitespace-normal px-0 text-base text-blush"><a href={whatsappUrl} target="_blank" rel="noopener noreferrer">Agendar consulta inicial<ArrowUpRight aria-hidden /></a></Button></article>
+            <article className="rounded-[14px] bg-ink-foreground/[0.06] p-8"><h4 className="font-display text-2xl">Já é paciente da Dra. Aline</h4><p className="mt-3 leading-relaxed text-ink-foreground/85">Ative o Monitoramento 360° e passe a ser acompanhada também entre as consultas.</p><Button variant="link" asChild className="mt-4 h-auto min-h-11 whitespace-normal px-0 text-base text-blush"><a href={whatsappMonitoramentoUrl} target="_blank" rel="noopener noreferrer">Quero ativar<ArrowUpRight aria-hidden /></a></Button></article>
+            <article className="rounded-[14px] bg-ink-foreground/[0.06] p-8"><h4 className="font-display text-2xl">Ainda não é paciente</h4><p className="mt-3 leading-relaxed text-ink-foreground/85">Agende sua consulta inicial e comece seu acompanhamento já com o aplicativo.</p><Button variant="link" asChild className="mt-4 h-auto min-h-11 whitespace-normal px-0 text-base text-blush"><a href={whatsappUrl} target="_blank" rel="noopener noreferrer">Agendar consulta inicial<ArrowUpRight aria-hidden /></a></Button></article>
           </div>
         </div>
 

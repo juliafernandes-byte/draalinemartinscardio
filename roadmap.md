@@ -1,4 +1,4 @@
-# Atualização Monitoramento 360°
-- [x] Atualizar links, menu, abertura, diferenciais e apresentação do produto.
-- [x] Atualizar consulta online, perguntas, convite final e descrição de busca.
-- [x] Conferir links e apresentação em computador e celular de 390px.
+# Consulta particular: hierarquia e identidade
+- [x] Atualizar paleta, tipografia e arredondamento.
+- [x] Priorizar consulta na abertura, diferenciais, ordem, menu e convite final.
+- [x] Conferir apresentação, contraste e links em 1280px e 390px.

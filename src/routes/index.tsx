@@ -1,16 +1,16 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import {
-  Bell, Smartphone, Clock, Heart, Menu, MessageCircle, X, Instagram, MapPin, Phone, Video, Building2, Check,
+  Bell, Smartphone, Clock, GraduationCap, Heart, Menu, MessageCircle, X, Instagram, MapPin, Phone, Video, Building2, Check,
 } from "lucide-react";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import { whatsappUrl, whatsappMonitoramentoUrl } from "@/lib/whatsapp";
+import { whatsappUrl } from "@/lib/whatsapp";
 import { Button } from "@/components/ui/button";
 import { Monitoramento } from "@/components/monitoramento";
 
 const TITLE = "Dra. Aline Martins | Cardiologista – Prevenção e Saúde do Coração da Mulher";
 const DESC =
-  "Cardiologista em Brasília com foco em prevenção e longevidade. Monitoramento 360°: aplicativo de acompanhamento da pressão com a sua médica entre as consultas. Presencial e online.";
+  "Cardiologista em Brasília com mais de 20 anos de experiência. Atendimento particular presencial e online, com foco em prevenção e acompanhamento entre as consultas pelo Monitoramento 360°.";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -31,21 +31,20 @@ export const Route = createFileRoute("/")({
 });
 
 const NAV = [
-  { href: "#monitoramento", label: "Monitoramento 360°" },
   { href: "#sobre", label: "Sobre" },
+  { href: "#consulta", label: "Consulta" },
+  { href: "#monitoramento", label: "Monitoramento 360°" },
   { href: "#mulher", label: "Coração da mulher" },
-  { href: "#consulta", label: "Consultas" },
   { href: "#duvidas", label: "Dúvidas" },
 ];
 
 const btn =
   "inline-flex min-h-11 items-center justify-center gap-2 rounded-full px-6 py-3 text-[15px] font-semibold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2";
 const btnPrimary = `${btn} bg-primary text-primary-foreground hover:bg-primary/90`;
-const btnOutline = `${btn} border border-foreground text-foreground hover:bg-foreground hover:text-background`;
+const btnOutline = `${btn} border border-navy text-navy hover:bg-navy hover:text-background`;
 const btnCream = `${btn} bg-background text-primary hover:bg-secondary`;
 const wrap = "mx-auto w-full max-w-6xl px-5 md:px-8";
 const ext = { href: whatsappUrl, target: "_blank", rel: "noopener noreferrer" };
-const monitorExt = { ...ext, href: whatsappMonitoramentoUrl };
 
 function Header() {
   const [open, setOpen] = useState(false);
@@ -96,8 +95,9 @@ function Placeholder({ text, className }: { text: string; className: string }) {
 
 const diffs = [
   { icon: Clock, t: "Consulta sem pressa", d: "Tempo para entender sua história, seus hábitos e suas dúvidas — e explicar cada exame com clareza." },
-  { icon: Smartphone, t: "Monitoramento 360°", d: "Lembretes, registro de pressão e acompanhamento da médica pelo aplicativo, entre as consultas." },
+  { icon: GraduationCap, t: "Experiência e formação", d: "Mais de 20 anos de cardiologia, com residências em Clínica Médica, Cardiologia e Ecocardiografia e mestrado pela UnB." },
   { icon: Heart, t: "Prevenção e longevidade", d: "Cuidado pensado para você viver mais e melhor, com hábitos possíveis na sua rotina." },
+  { icon: Smartphone, t: "Acompanhamento pelo app", d: "Com o Monitoramento 360°, a Dra. Aline segue com você entre uma consulta e outra." },
 ];
 const women = [
   { t: "Menopausa e risco cardíaco", d: "O que muda com os hormônios e como se antecipar." },
@@ -124,24 +124,24 @@ function Index() {
         <section className="section-pad">
           <div className={`${wrap} grid items-center gap-12 md:grid-cols-[1.15fr_1fr]`}>
             <div>
-              <p className="eyebrow">Cardiologista · CRM-DF 15170 · RQE 10578 / 10577</p>
-               <h1 className="mt-5 text-[2.5rem] leading-[1.08] md:text-6xl">Sua cardiologista acompanhando seu coração entre uma consulta e outra.</h1>
+              <p className="eyebrow">Cardiologista em Brasília · CRM-DF 15170 · RQE 10578 / 10577</p>
+               <h1 className="mt-5 text-[2.5rem] leading-[1.08] md:text-6xl">Cuidar do coração antes que ele dê sinais.</h1>
               <p className="mt-6 max-w-xl text-lg leading-relaxed text-muted-foreground">
-                 Com o Monitoramento 360°, você recebe lembretes para medir a pressão, registra tudo no aplicativo e a Dra. Aline acompanha seus resultados de perto — ajustando o cuidado sem esperar o próximo check-up.
+                 Cardiologista com mais de 20 anos de experiência, com atuação preventiva e atendimento particular feito com tempo, escuta e atenção. Presencial e online.
               </p>
                <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-                 <Button asChild className={`${btnPrimary} h-auto whitespace-normal shadow-none`}><a href="#monitoramento">Conhecer o Monitoramento 360°</a></Button>
-                 <Button asChild variant="outline" className={`${btnOutline} h-auto whitespace-normal shadow-none`}><a {...ext}>Agendar consulta</a></Button>
+                 <Button asChild className={`${btnPrimary} h-auto whitespace-normal shadow-none`}><a {...ext}>Agendar consulta</a></Button>
+                 <Button asChild variant="outline" className={`${btnOutline} h-auto whitespace-normal shadow-none`}><a href="#consulta">Como é a consulta</a></Button>
               </div>
                <ul className="mt-6 flex flex-wrap gap-x-5 gap-y-3 text-sm text-muted-foreground">
-                 {["Mais de 20 anos de experiência", "Presencial e online", "Atendimento particular"].map(text => <li key={text} className="flex items-center gap-2"><Check size={16} className="shrink-0 text-primary" strokeWidth={1.5} aria-hidden />{text}</li>)}
+                 {["Mais de 20 anos de experiência", "Consulta sem pressa", "Presencial e online"].map(text => <li key={text} className="flex items-center gap-2"><Check size={16} className="shrink-0 text-primary" strokeWidth={1.5} aria-hidden />{text}</li>)}
                </ul>
             </div>
              <div className="relative mx-auto w-full max-w-sm pb-6">
                <Placeholder text="Foto profissional da Dra. Aline" className="aspect-[4/5] w-full rounded-b-[20px] rounded-t-[999px] bg-secondary" />
                <div className="hero-notification absolute bottom-0 left-0 flex w-[min(100%,290px)] items-center gap-3 rounded-lg border border-border/60 bg-background p-4 md:-left-5">
                  <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-secondary text-primary"><Bell size={23} strokeWidth={1.5} aria-hidden /></span>
-                 <div className="min-w-0"><p className="text-sm font-semibold text-primary">Monitoramento 360°</p><p className="mt-1 text-sm">Hora de medir sua pressão</p><p className="mt-1 text-xs text-muted-foreground">08:00</p></div>
+                 <div className="min-w-0"><p className="text-sm font-semibold text-primary">Monitoramento 360°</p><p className="mt-1 text-sm">Sua médica acompanhando entre as consultas</p></div>
                </div>
              </div>
           </div>
@@ -149,12 +149,13 @@ function Index() {
 
         {/* Diferenciais */}
         <section className="section-pad bg-secondary" aria-label="Diferenciais">
-          <div className={`${wrap} grid gap-5 md:grid-cols-3`}>
+          <div className={`${wrap} grid gap-5 md:grid-cols-2 xl:grid-cols-4`}>
             {diffs.map(({ icon: I, t, d }) => (
-              <article key={t} className="rounded-[20px] bg-background p-8">
+              <article key={t} className="rounded-[14px] bg-background p-8">
                 <I className="text-primary" size={30} strokeWidth={1.5} aria-hidden />
                 <h3 className="mt-5 text-2xl">{t}</h3>
                 <p className="mt-3 leading-relaxed text-muted-foreground">{d}</p>
+                {t === "Acompanhamento pelo app" && <Button variant="link" asChild className="mt-3 h-auto min-h-11 px-0 text-base"><a href="#monitoramento">Conhecer</a></Button>}
               </article>
             ))}
           </div>
@@ -163,7 +164,7 @@ function Index() {
         {/* Sobre */}
         <section id="sobre" className="section-pad">
           <div className={`${wrap} grid items-center gap-12 md:grid-cols-2`}>
-            <Placeholder text="Foto da Dra. Aline no consultório" className="aspect-square w-full rounded-[20px] bg-muted" />
+            <Placeholder text="Foto da Dra. Aline no consultório" className="aspect-square w-full rounded-[14px] bg-muted" />
             <div>
               <p className="eyebrow">Sobre a Dra. Aline</p>
               <h2 className="mt-4 text-4xl leading-tight md:text-5xl">Medicina feita com escuta, ciência e presença.</h2>
@@ -187,6 +188,38 @@ function Index() {
           </div>
         </section>
 
+        {/* Consultas */}
+        <section id="consulta" className="section-pad bg-navy-soft">
+          <div className={wrap}>
+            <p className="eyebrow">Consulta particular</p>
+            <h2 className="mt-4 text-4xl leading-tight md:text-5xl">Uma consulta feita com tempo para você.</h2>
+            <p className="mt-6 max-w-3xl text-lg leading-relaxed text-muted-foreground">Na consulta com a Dra. Aline, você não é só mais um horário na agenda. É o momento de olhar para a sua saúde do coração por inteiro.</p>
+            <h3 className="mt-10 text-2xl">O que a consulta inclui</h3>
+            <ul className="mt-5 grid gap-4 md:grid-cols-2">
+              {["Escuta da sua história, rotina e hábitos", "Avaliação do seu risco cardiovascular", "Explicação clara dos exames e do tratamento", "Plano de cuidado individual, com foco em prevenção"].map(text => <li key={text} className="flex gap-3"><Check size={20} strokeWidth={1.5} className="shrink-0 text-primary" aria-hidden />{text}</li>)}
+            </ul>
+            <div className="mt-12 grid gap-5 md:grid-cols-2">
+              <article className="rounded-[14px] bg-background p-8">
+                <Building2 className="text-primary" size={30} strokeWidth={1.5} aria-hidden />
+                <h3 className="mt-5 text-2xl">No consultório</h3>
+                <ul className="mt-4 space-y-2 text-muted-foreground">
+                  <li>[Endereço completo do consultório]</li>
+                  <li>[Dias e horários de atendimento]</li>
+                  <li>Atendimento particular</li>
+                </ul>
+              </article>
+              <article className="rounded-[14px] bg-background p-8">
+                <Video className="text-primary" size={30} strokeWidth={1.5} aria-hidden />
+                <h3 className="mt-5 text-2xl">Consulta online</h3>
+                <p className="mt-4 leading-relaxed text-muted-foreground">Atendimento por vídeo, de onde você estiver, com a mesma escuta e cuidado da consulta presencial.</p>
+                <p className="mt-2 leading-relaxed text-muted-foreground">Receitas e pedidos de exame enviados digitalmente.</p>
+                 <p className="mt-2 leading-relaxed text-muted-foreground">Pacientes do Monitoramento 360° também podem fazer os retornos online.</p>
+              </article>
+            </div>
+            <div className="mt-10 text-center"><Button asChild className={`${btnPrimary} h-auto whitespace-normal shadow-none`}><a {...ext}>Agendar minha consulta</a></Button></div>
+          </div>
+        </section>
+
         <Monitoramento />
 
         {/* Mulher */}
@@ -199,37 +232,11 @@ function Index() {
             </div>
             <div className="grid gap-4 sm:grid-cols-2">
               {women.map((w) => (
-                <article key={w.t} className="rounded-[20px] bg-secondary p-6">
+                <article key={w.t} className="rounded-[14px] bg-secondary p-6">
                   <h3 className="text-xl">{w.t}</h3>
                   <p className="mt-2 text-[15px] leading-relaxed text-muted-foreground">{w.d}</p>
                 </article>
               ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Consultas */}
-        <section id="consulta" className="section-pad bg-muted">
-          <div className={wrap}>
-            <p className="eyebrow">Consultas</p>
-            <h2 className="mt-4 text-4xl leading-tight md:text-5xl">Atendimento presencial e online.</h2>
-            <div className="mt-12 grid gap-5 md:grid-cols-2">
-              <article className="rounded-[20px] bg-background p-8">
-                <Building2 className="text-primary" size={30} strokeWidth={1.5} aria-hidden />
-                <h3 className="mt-5 text-2xl">No consultório</h3>
-                <ul className="mt-4 space-y-2 text-muted-foreground">
-                  <li>[Endereço completo do consultório]</li>
-                  <li>[Dias e horários de atendimento]</li>
-                  <li>Atendimento particular</li>
-                </ul>
-              </article>
-              <article className="rounded-[20px] bg-background p-8">
-                <Video className="text-primary" size={30} strokeWidth={1.5} aria-hidden />
-                <h3 className="mt-5 text-2xl">Consulta online</h3>
-                <p className="mt-4 leading-relaxed text-muted-foreground">Atendimento por vídeo, de onde você estiver, com a mesma escuta e cuidado da consulta presencial.</p>
-                <p className="mt-2 leading-relaxed text-muted-foreground">Receitas e pedidos de exame enviados digitalmente.</p>
-                 <p className="mt-2 leading-relaxed text-muted-foreground">Pacientes do Monitoramento 360° também podem fazer os retornos online.</p>
-              </article>
             </div>
           </div>
         </section>
@@ -255,27 +262,27 @@ function Index() {
           <div className={wrap}>
             <div className="rounded-[32px] bg-primary px-6 py-14 text-center text-primary-foreground md:py-20">
               <h2 className="text-4xl leading-tight md:text-5xl">Venha cuidar do seu bem mais precioso: o seu coração.</h2>
-               <p className="mt-4 text-lg opacity-90">Agende sua consulta e conheça o Monitoramento 360°.</p>
+               <p className="mt-4 text-lg opacity-90">Atendimento particular, presencial e online.</p>
                <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row sm:flex-wrap">
                  <Button asChild className={`${btnCream} h-auto whitespace-normal shadow-none`}><a {...ext}><MessageCircle size={18} strokeWidth={1.5} />Agendar consulta</a></Button>
-                 <Button asChild variant="outline" className={`${btn} h-auto whitespace-normal border border-primary-foreground bg-transparent text-primary-foreground shadow-none hover:bg-background hover:text-primary`}><a {...monitorExt}>Quero o Monitoramento 360°</a></Button>
+                 <Button asChild variant="outline" className={`${btn} h-auto whitespace-normal border border-primary-foreground bg-transparent text-primary-foreground shadow-none hover:bg-background hover:text-primary`}><a href="#monitoramento">Conhecer o Monitoramento 360°</a></Button>
                </div>
             </div>
           </div>
         </section>
       </main>
 
-      <footer className="border-t border-border py-12">
+      <footer className="border-t border-ink-foreground/15 bg-navy py-12 text-ink-foreground">
         <div className={`${wrap} flex flex-col gap-8 md:flex-row md:justify-between`}>
           <div>
             <p className="font-display text-2xl">Dra. Aline Martins</p>
-            <p className="mt-2 text-muted-foreground">Médica cardiologista · CRM-DF 15170 · RQE 10578 / 10577</p>
-            <p className="text-muted-foreground">Responsável técnica: Dra. Aline Martins</p>
+            <p className="mt-2 text-ink-foreground/85">Médica cardiologista · CRM-DF 15170 · RQE 10578 / 10577</p>
+            <p className="text-ink-foreground/85">Responsável técnica: Dra. Aline Martins</p>
           </div>
-          <ul className="space-y-1 text-muted-foreground md:text-right">
-            <li><a href="https://www.instagram.com/dra.alinemartinscardio" target="_blank" rel="noopener noreferrer" className="inline-flex min-h-11 items-center gap-2 hover:text-primary"><Instagram size={18} strokeWidth={1.5} className="text-primary" aria-hidden />@dra.alinemartinscardio</a></li>
-            <li className="flex items-center gap-2 md:justify-end"><MapPin size={18} strokeWidth={1.5} className="text-primary" aria-hidden />[Endereço do consultório]</li>
-            <li className="flex min-h-11 items-center gap-2 md:justify-end"><Phone size={18} strokeWidth={1.5} className="text-primary" aria-hidden />[WhatsApp]</li>
+          <ul className="space-y-1 text-ink-foreground/85 md:text-right">
+            <li><a href="https://www.instagram.com/dra.alinemartinscardio" target="_blank" rel="noopener noreferrer" className="inline-flex min-h-11 items-center gap-2 hover:text-blush"><Instagram size={18} strokeWidth={1.5} className="text-blush" aria-hidden />@dra.alinemartinscardio</a></li>
+            <li className="flex items-center gap-2 md:justify-end"><MapPin size={18} strokeWidth={1.5} className="text-blush" aria-hidden />[Endereço do consultório]</li>
+            <li className="flex min-h-11 items-center gap-2 md:justify-end"><Phone size={18} strokeWidth={1.5} className="text-blush" aria-hidden />[WhatsApp]</li>
           </ul>
         </div>
       </footer>
