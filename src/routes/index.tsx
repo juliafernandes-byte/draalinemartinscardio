@@ -123,10 +123,10 @@ function Index() {
         <section className="section-pad">
           <div className={`${wrap} grid items-center gap-12 md:grid-cols-[1.15fr_1fr]`}>
             <div>
-              <p className="eyebrow">Cardiologista · CRM [UF 00000] · RQE [00000]</p>
+              <p className="eyebrow">Cardiologista · CRM-DF 15170 · RQE 10578 / 10577</p>
               <h1 className="mt-5 text-[2.5rem] leading-[1.08] md:text-6xl">Cuidar do coração antes que ele dê sinais.</h1>
               <p className="mt-6 max-w-xl text-lg leading-relaxed text-muted-foreground">
-                Cardiologia preventiva com tempo para ouvir: consulta sem pressa e acompanhamento de perto, para ajustar o cuidado sem esperar o próximo check-up.
+                Cardiologista há mais de 20 anos, com atuação preventiva para promover saúde e bem-estar com carinho e atenção. Consulta sem pressa e acompanhamento de perto, presencial e online.
               </p>
               <div className="mt-8 flex flex-col gap-3 sm:flex-row">
                 <a {...ext} className={btnPrimary}><MessageCircle size={18} strokeWidth={1.5} />Agendar pelo WhatsApp</a>
@@ -157,13 +157,22 @@ function Index() {
             <div>
               <p className="eyebrow">Sobre a Dra. Aline</p>
               <h2 className="mt-4 text-4xl leading-tight md:text-5xl">Medicina feita com escuta, ciência e presença.</h2>
-              <p className="mt-6 leading-relaxed text-muted-foreground">[Texto de trajetória enviado pela Dra. Aline: formação, residência em cardiologia, experiência clínica e o que a levou a se dedicar à prevenção.]</p>
-              <p className="mt-4 leading-relaxed text-muted-foreground">Acredita que o melhor momento de cuidar do coração é antes da doença aparecer — quando ainda dá para mudar hábitos com mais leveza e menos remédio.</p>
-              <ul className="mt-6 space-y-3">
-                {["[Graduação em Medicina · instituição, ano]", "[Residência em Cardiologia · instituição, ano]", "[Título de especialista / pós-graduações concluídas]"].map((i) => (
+              <p className="mt-6 leading-relaxed text-muted-foreground">Sou médica cardiologista com mais de 20 anos de experiência e atuo na saúde cardiovascular de forma preventiva, para promover saúde e bem-estar com carinho e atenção. Atendo pacientes particulares de forma presencial e online, em Brasília.</p>
+              <p className="mt-4 leading-relaxed text-muted-foreground">Acredito que o melhor momento de cuidar do coração é antes da doença aparecer — quando ainda dá para mudar hábitos com mais leveza e menos remédio.</p>
+              <p className="eyebrow mt-8">Formação acadêmica</p>
+              <ul className="mt-4 space-y-3">
+                {[
+                  "Graduação em Medicina pela Universidade Federal do Pará, com destaque acadêmico",
+                  "Residência em Clínica Médica pela Secretaria de Saúde do Distrito Federal (SES-DF)",
+                  "Residência em Cardiologia pela Universidade de Brasília (UnB) e Instituto de Cardiologia e Transplante do Distrito Federal (ICTDF)",
+                  "Residência em Ecocardiografia pelo ICTDF",
+                  "Mestrado em Ciências Médicas pela Universidade de Brasília (UnB)",
+                  "Título de Especialista em Cardiologia e Ecocardiografia",
+                ].map((i) => (
                   <li key={i} className="flex gap-3"><Check className="mt-0.5 shrink-0 text-primary" size={20} strokeWidth={1.5} aria-hidden />{i}</li>
                 ))}
               </ul>
+              <p className="mt-5 text-sm text-muted-foreground">CRM-DF 15170 · RQE 10578 / 10577</p>
             </div>
           </div>
         </section>
@@ -218,7 +227,7 @@ function Index() {
                 <ul className="mt-4 space-y-2 text-muted-foreground">
                   <li>[Endereço completo do consultório]</li>
                   <li>[Dias e horários de atendimento]</li>
-                  <li>[Particular · informar se há reembolso ou convênios]</li>
+                  <li>Atendimento particular</li>
                 </ul>
               </article>
               <article className="rounded-[20px] bg-background p-8">
@@ -251,7 +260,7 @@ function Index() {
         <section id="agendar" className="pb-16 md:pb-24">
           <div className={wrap}>
             <div className="rounded-[32px] bg-primary px-6 py-14 text-center text-primary-foreground md:py-20">
-              <h2 className="text-4xl leading-tight md:text-5xl">Vamos cuidar do seu coração com calma?</h2>
+              <h2 className="text-4xl leading-tight md:text-5xl">Venha cuidar do seu bem mais precioso: o seu coração.</h2>
               <p className="mt-4 text-lg opacity-90">Agende sua avaliação presencial ou online.</p>
               <a {...ext} className={`${btnCream} mt-8`}><MessageCircle size={18} strokeWidth={1.5} />Agendar pelo WhatsApp</a>
             </div>
@@ -263,7 +272,7 @@ function Index() {
         <div className={`${wrap} flex flex-col gap-8 md:flex-row md:justify-between`}>
           <div>
             <p className="font-display text-2xl">Dra. Aline Martins</p>
-            <p className="mt-2 text-muted-foreground">Médica cardiologista · CRM [UF 00000] · RQE [00000]</p>
+            <p className="mt-2 text-muted-foreground">Médica cardiologista · CRM-DF 15170 · RQE 10578 / 10577</p>
             <p className="text-muted-foreground">Responsável técnica: Dra. Aline Martins</p>
           </div>
           <ul className="space-y-1 text-muted-foreground md:text-right">
