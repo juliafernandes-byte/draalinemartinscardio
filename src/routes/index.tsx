@@ -4,11 +4,12 @@ import {
   Bell, Smartphone, Clock, GraduationCap, Heart, Menu, MessageCircle, X, Instagram, MapPin, Phone, Video, Building2, Check,
 } from "lucide-react";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import { Logo } from "@/components/logo";
 import { whatsappUrl } from "@/lib/whatsapp";
 import { Button } from "@/components/ui/button";
 import { Monitoramento } from "@/components/monitoramento";
 
-const TITLE = "Dra. Aline Martins | Cardiologista – Prevenção e Saúde do Coração da Mulher";
+const TITLE = "Dra. Aline Martins Dall'Orto | Cardiologista em Brasília";
 const DESC =
   "Cardiologista em Brasília com mais de 20 anos de experiência. Atendimento particular presencial e online, com foco em prevenção e acompanhamento entre as consultas pelo Monitoramento 360°.";
 
@@ -40,7 +41,7 @@ const NAV = [
 
 const btn =
   "inline-flex min-h-11 items-center justify-center gap-2 rounded-full px-6 py-3 text-[15px] font-semibold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2";
-const btnPrimary = `${btn} bg-primary text-primary-foreground hover:bg-primary/90`;
+const btnPrimary = `${btn} bg-primary text-primary-foreground hover:bg-primary-hover`;
 const btnOutline = `${btn} border border-navy text-navy hover:bg-navy hover:text-background`;
 const btnCream = `${btn} bg-background text-primary hover:bg-secondary`;
 const wrap = "mx-auto w-full max-w-6xl px-5 md:px-8";
@@ -51,10 +52,7 @@ function Header() {
   return (
     <header className="fixed inset-x-0 top-0 z-40 border-b border-border/60 bg-background/90 backdrop-blur">
       <div className={`${wrap} flex h-[76px] items-center justify-between gap-4`}>
-        <a href="#inicio" className="flex flex-col leading-tight">
-          <span className="font-display text-xl text-foreground">Dra. Aline Martins</span>
-          <span className="eyebrow !text-[11px] !tracking-[0.12em]">Cardiologia · Prevenção e longevidade</span>
-        </a>
+        <a href="#inicio" className="min-w-0" aria-label="Dra. Aline Martins Dall'Orto, início"><Logo /></a>
         <nav aria-label="Principal" className="hidden items-center gap-4 xl:flex">
           {NAV.map((n) => (
             <a key={n.href} href={n.href} className="inline-flex min-h-11 items-center gap-2 text-[14px] text-muted-foreground hover:text-primary">{n.label}{n.href === "#monitoramento" && <span className="rounded-full bg-primary px-2 py-0.5 text-[10px] font-semibold text-primary-foreground">Novo</span>}</a>
@@ -275,9 +273,9 @@ function Index() {
       <footer className="border-t border-ink-foreground/15 bg-navy py-12 text-ink-foreground">
         <div className={`${wrap} flex flex-col gap-8 md:flex-row md:justify-between`}>
           <div>
-            <p className="font-display text-2xl">Dra. Aline Martins</p>
+            <Logo variant="footer" />
             <p className="mt-2 text-ink-foreground/85">Médica cardiologista · CRM-DF 15170 · RQE 10578 / 10577</p>
-            <p className="text-ink-foreground/85">Responsável técnica: Dra. Aline Martins</p>
+            <p className="text-ink-foreground/85">Responsável técnica: Dra. Aline Martins Dall'Orto</p>
           </div>
           <ul className="space-y-1 text-ink-foreground/85 md:text-right">
             <li><a href="https://www.instagram.com/dra.alinemartinscardio" target="_blank" rel="noopener noreferrer" className="inline-flex min-h-11 items-center gap-2 hover:text-blush"><Instagram size={18} strokeWidth={1.5} className="text-blush" aria-hidden />@dra.alinemartinscardio</a></li>
@@ -287,7 +285,7 @@ function Index() {
         </div>
       </footer>
 
-      <a {...ext} aria-label="Agendar pelo WhatsApp" className="fixed bottom-5 right-5 z-50 inline-flex h-14 w-14 items-center justify-center rounded-full bg-primary text-primary-foreground shadow-lg hover:bg-primary/90">
+      <a {...ext} aria-label="Agendar pelo WhatsApp" className="fixed bottom-5 right-5 z-50 inline-flex h-14 w-14 items-center justify-center rounded-full bg-primary text-primary-foreground shadow-lg hover:bg-primary-hover">
         <MessageCircle size={26} strokeWidth={1.5} aria-hidden />
       </a>
     </>
