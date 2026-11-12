@@ -18,6 +18,6 @@ export default defineConfig({
   vite: {
     // Pre-bundle Embla at server start: discovering it on first import makes Vite
     // re-optimize mid-session, which blanks the page with a null React inside the carousel.
-    optimizeDeps: { include: ["embla-carousel-react"] },
+    optimizeDeps: { include: ["embla-carousel-react", "embla-carousel-autoplay"] },
   },
 });

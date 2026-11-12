@@ -1,5 +1,6 @@
 import * as React from "react";
-import { Bell, ClipboardList, LineChart, Stethoscope, ArrowUpRight, ArrowLeft, ArrowRight } from "lucide-react";
+import Autoplay from "embla-carousel-autoplay";
+import { Bell, ClipboardList, LineChart, Stethoscope, ArrowUpRight, ArrowLeft, ArrowRight, Pause, Play } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Carousel, CarouselContent, CarouselItem, useCarousel, type CarouselApi } from "@/components/ui/carousel";
 import { whatsappMonitoramentoUrl, whatsappUrl } from "@/lib/whatsapp";
@@ -56,6 +57,10 @@ function FeatureCarousel() {
   const [api, setApi] = React.useState<CarouselApi>();
   const [current, setCurrent] = React.useState(0);
   const [count, setCount] = React.useState(0);
+  const [playing, setPlaying] = React.useState(true);
+  const autoplayRef = React.useRef<ReturnType<typeof Autoplay> | null>(null);
+  if (!autoplayRef.current) autoplayRef.current = Autoplay({ delay: 5000, stopOnInteraction: false, stopOnMouseEnter: true });
+  const autoplay = autoplayRef.current;
 
   React.useEffect(() => {
     if (!api) return;
@@ -72,9 +77,33 @@ function FeatureCarousel() {
     };
   }, [api]);
 
+  React.useEffect(() => {
+    if (!api) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      api.plugins().autoplay.stop();
+      setPlaying(false);
+    }
+    const onPlay = () => setPlaying(true);
+    const onStop = () => setPlaying(false);
+    api.on("autoplay:play", onPlay);
+    api.on("autoplay:stop", onStop);
+    return () => {
+      api.off("autoplay:play", onPlay);
+      api.off("autoplay:stop", onStop);
+    };
+  }, [api]);
+
+  const toggleAutoplay = () => {
+    const auto = api?.plugins().autoplay;
+    if (!auto) return;
+    if (auto.isPlaying()) auto.stop();
+    else auto.play();
+  };
+
   return (
     <Carousel
       setApi={setApi}
+      plugins={[autoplay]}
       opts={{ align: "start", containScroll: "trimSnaps" }}
       aria-label="Recursos do Monitoramento 360°"
     >
@@ -83,6 +112,9 @@ function FeatureCarousel() {
         <div className="ms-auto flex items-center gap-2">
           <CarouselPreviousArrow />
           <CarouselNextArrow />
+          <Button type="button" variant="ghost" size="icon" className={arrowButton} onClick={toggleAutoplay} aria-pressed={playing} aria-label={playing ? "Pausar a passagem automática dos itens" : "Continuar a passagem automática dos itens"}>
+            {playing ? <Pause aria-hidden /> : <Play aria-hidden />}
+          </Button>
         </div>
       </div>
 
