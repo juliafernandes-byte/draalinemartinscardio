@@ -1,5 +1,7 @@
-import { Bell, ClipboardList, LineChart, Stethoscope, ArrowUpRight } from "lucide-react";
+import * as React from "react";
+import { Bell, ClipboardList, LineChart, Stethoscope, ArrowUpRight, ArrowLeft, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Carousel, CarouselContent, CarouselItem, useCarousel, type CarouselApi } from "@/components/ui/carousel";
 import { whatsappMonitoramentoUrl, whatsappUrl } from "@/lib/whatsapp";
 
 const steps = [
@@ -14,6 +16,7 @@ const features = [
   { icon: Stethoscope, title: "Sua médica por perto", text: "A Dra. Aline acompanha seus dados e orienta os próximos passos." },
 ];
 const creamButton = "h-auto min-h-11 whitespace-normal rounded-full bg-background px-6 py-3 text-[15px] font-semibold text-primary hover:bg-secondary shadow-none";
+const arrowButton = "h-11 w-11 shrink-0 rounded-full border border-ink-foreground/30 bg-transparent text-ink-foreground shadow-none hover:bg-ink-foreground/10 hover:text-ink-foreground disabled:opacity-35";
 
 export function MonitoringPhone() {
   return (
@@ -49,6 +52,92 @@ export function MonitoringPhone() {
   );
 }
 
+function FeatureCarousel() {
+  const [api, setApi] = React.useState<CarouselApi>();
+  const [current, setCurrent] = React.useState(0);
+  const [count, setCount] = React.useState(0);
+
+  React.useEffect(() => {
+    if (!api) return;
+    const onSelect = () => {
+      setCurrent(api.selectedScrollSnap());
+      setCount(api.scrollSnapList().length);
+    };
+    onSelect();
+    api.on("select", onSelect);
+    api.on("reInit", onSelect);
+    return () => {
+      api.off("select", onSelect);
+      api.off("reInit", onSelect);
+    };
+  }, [api]);
+
+  return (
+    <Carousel
+      setApi={setApi}
+      opts={{ align: "start", containScroll: "trimSnaps" }}
+      aria-label="Recursos do Monitoramento 360°"
+    >
+      <div className="flex flex-wrap items-center justify-between gap-x-6 gap-y-4">
+        <h3 className="text-3xl">O que o Monitoramento 360° oferece</h3>
+        <div className="ms-auto flex items-center gap-2">
+          <CarouselPreviousArrow />
+          <CarouselNextArrow />
+        </div>
+      </div>
+
+      <CarouselContent className="mt-8">
+          {features.map(({ icon: Icon, title, text }, i) => (
+            <CarouselItem key={title} className="basis-full sm:basis-1/2 lg:basis-1/3" aria-label={`Recurso ${i + 1} de ${features.length}`}>
+              <div className="h-full rounded-[14px] border border-ink-foreground/15 p-6">
+                <Icon className="text-blush" size={28} strokeWidth={1.5} aria-hidden />
+                <h4 className="mt-4 font-display text-2xl">{title}</h4>
+                <p className="mt-3 leading-relaxed text-ink-foreground/85">{text}</p>
+              </div>
+            </CarouselItem>
+          ))}
+        </CarouselContent>
+        <p className="sr-only" aria-live="polite">
+          {count > 0 ? `Recurso ${current + 1} de ${count}` : ""}
+        </p>
+        {count > 1 && (
+          <div className="mt-6 flex items-center justify-center">
+            {Array.from({ length: count }).map((_, i) => (
+              <button
+                key={i}
+                type="button"
+                onClick={() => api?.scrollTo(i)}
+                aria-label={`Ir para o recurso ${i + 1}`}
+                aria-current={i === current || undefined}
+                className="inline-flex h-11 w-11 items-center justify-center rounded-full focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-blush"
+              >
+                <span className={i === current ? "h-2.5 w-2.5 rounded-full bg-blush" : "h-2 w-2 rounded-full bg-ink-foreground/35"} />
+              </button>
+            ))}
+          </div>
+        )}
+      </Carousel>
+  );
+}
+
+function CarouselPreviousArrow() {
+  const { scrollPrev, canScrollPrev } = useCarousel();
+  return (
+    <Button type="button" variant="ghost" size="icon" className={arrowButton} disabled={!canScrollPrev} onClick={scrollPrev} aria-label="Recurso anterior">
+      <ArrowLeft aria-hidden />
+    </Button>
+  );
+}
+
+function CarouselNextArrow() {
+  const { scrollNext, canScrollNext } = useCarousel();
+  return (
+    <Button type="button" variant="ghost" size="icon" className={arrowButton} disabled={!canScrollNext} onClick={scrollNext} aria-label="Próximo recurso">
+      <ArrowRight aria-hidden />
+    </Button>
+  );
+}
+
 export function Monitoramento() {
   return (
     <section id="monitoramento" className="section-pad bg-ink text-ink-foreground">
@@ -72,10 +161,7 @@ export function Monitoramento() {
         </div>
 
         <div className="mt-16">
-          <h3 className="text-3xl">O que o Monitoramento 360° oferece</h3>
-          <div className="mt-8 grid gap-x-8 gap-y-10 sm:grid-cols-2 lg:grid-cols-4">
-            {features.map(({ icon: Icon, title, text }) => <div key={title}><Icon className="text-blush" size={28} strokeWidth={1.5} aria-hidden /><h4 className="mt-4 font-display text-2xl">{title}</h4><p className="mt-3 leading-relaxed text-ink-foreground/85">{text}</p></div>)}
-          </div>
+          <FeatureCarousel />
         </div>
 
         <div className="mt-16">

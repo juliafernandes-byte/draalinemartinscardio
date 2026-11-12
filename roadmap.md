@@ -4,3 +4,5 @@
 - [x] Conferir apresentação, contraste e links em 1280px e 390px.
 # Marca oficial
 - [x] Nome completo, assinatura, paleta da logo, Cinzel, componente de logo e favicon.
+# Carrossel de recursos
+- [x] "O que o Monitoramento 360° oferece" em carrossel horizontal, com setas, pontos e arrasto.
