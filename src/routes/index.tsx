@@ -53,11 +53,11 @@ function Header() {
     <header className="fixed inset-x-0 top-0 z-40 border-b border-border/60 bg-background/90 backdrop-blur">
       <div className={`${wrap} flex h-[76px] items-center justify-between gap-4`}>
         <a href="#inicio" className="min-w-0" aria-label="Dra. Aline Martins Dall'Orto, início"><Logo /></a>
-        <nav aria-label="Principal" className="hidden items-center gap-4 xl:flex">
+        <nav aria-label="Principal" className="hidden shrink-0 items-center gap-5 xl:flex">
           {NAV.map((n) => (
-            <a key={n.href} href={n.href} className="inline-flex min-h-11 items-center gap-2 text-[14px] text-muted-foreground hover:text-primary">{n.label}{n.href === "#monitoramento" && <span className="rounded-full bg-primary px-2 py-0.5 text-[10px] font-semibold text-primary-foreground">Novo</span>}</a>
+            <a key={n.href} href={n.href} className="inline-flex min-h-11 items-center whitespace-nowrap text-[14px] leading-none text-muted-foreground transition-colors hover:text-primary">{n.label}{n.href === "#monitoramento" && <span className="ml-1.5 rounded-full bg-primary px-1.5 py-[3px] text-[9px] font-semibold leading-none text-primary-foreground">Novo</span>}</a>
           ))}
-          <a {...ext} className={btnPrimary}>Agendar consulta</a>
+          <a {...ext} className={`${btnPrimary} ml-1 shrink-0 whitespace-nowrap`}>Agendar consulta</a>
         </nav>
         <Button
           variant="ghost"
