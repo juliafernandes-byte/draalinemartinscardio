@@ -270,17 +270,17 @@ function Index() {
         </section>
       </main>
 
-      <footer className="border-t border-ink-foreground/15 bg-navy py-12 text-ink-foreground">
+      <footer className="border-t border-border bg-background py-12 text-foreground">
         <div className={`${wrap} flex flex-col gap-8 md:flex-row md:justify-between`}>
           <div>
             <Logo variant="footer" />
-            <p className="mt-2 text-ink-foreground/85">Médica cardiologista · CRM-DF 15170 · RQE 10578 / 10577</p>
-            <p className="text-ink-foreground/85">Responsável técnica: Dra. Aline Martins Dall'Orto</p>
+            <p className="mt-3 text-sm text-muted-foreground">Médica cardiologista · CRM-DF 15170 · RQE 10578 / 10577</p>
+            <p className="text-sm text-muted-foreground">Responsável técnica: Dra. Aline Martins Dall'Orto</p>
           </div>
-          <ul className="space-y-1 text-ink-foreground/85 md:text-right">
-            <li><a href="https://www.instagram.com/dra.alinemartinscardio" target="_blank" rel="noopener noreferrer" className="inline-flex min-h-11 items-center gap-2 hover:text-blush"><Instagram size={18} strokeWidth={1.5} className="text-blush" aria-hidden />@dra.alinemartinscardio</a></li>
-            <li className="flex items-center gap-2 md:justify-end"><MapPin size={18} strokeWidth={1.5} className="text-blush" aria-hidden />[Endereço do consultório]</li>
-            <li className="flex min-h-11 items-center gap-2 md:justify-end"><Phone size={18} strokeWidth={1.5} className="text-blush" aria-hidden />[WhatsApp]</li>
+          <ul className="space-y-1 text-muted-foreground md:text-right">
+            <li><a href="https://www.instagram.com/dra.alinemartinscardio" target="_blank" rel="noopener noreferrer" className="inline-flex min-h-11 items-center gap-2 hover:text-primary"><Instagram size={18} strokeWidth={1.5} className="text-primary" aria-hidden />@dra.alinemartinscardio</a></li>
+            <li className="flex items-center gap-2 md:justify-end"><MapPin size={18} strokeWidth={1.5} className="text-primary" aria-hidden />[Endereço do consultório]</li>
+            <li className="flex min-h-11 items-center gap-2 md:justify-end"><Phone size={18} strokeWidth={1.5} className="text-primary" aria-hidden />[WhatsApp]</li>
           </ul>
         </div>
       </footer>
