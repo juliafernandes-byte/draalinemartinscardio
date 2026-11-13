@@ -1,6 +1,6 @@
 import * as React from "react";
 import Autoplay from "embla-carousel-autoplay";
-import { Bell, ClipboardList, LineChart, Stethoscope, ArrowUpRight, ArrowLeft, ArrowRight, Pause, Play } from "lucide-react";
+import { Bell, ClipboardList, LineChart, ArrowUpRight, ArrowLeft, ArrowRight, Pause, Play } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Carousel, CarouselContent, CarouselItem, useCarousel, type CarouselApi } from "@/components/ui/carousel";
 import { whatsappMonitoramentoUrl, whatsappUrl } from "@/lib/whatsapp";
@@ -14,7 +14,6 @@ const features = [
   { icon: Bell, title: "Lembretes de aferição", text: "Alertas no horário certo para você não esquecer de medir a pressão." },
   { icon: ClipboardList, title: "Registro na palma da mão", text: "Suas medidas organizadas em um só lugar, prontas para a consulta." },
   { icon: LineChart, title: "Evolução visível", text: "Acompanhe como sua pressão se comporta ao longo das semanas." },
-  { icon: Stethoscope, title: "Sua médica por perto", text: "A Dra. Aline acompanha seus dados e orienta os próximos passos." },
 ];
 const creamButton = "h-auto min-h-11 whitespace-normal rounded-full bg-background px-6 py-3 text-[15px] font-semibold text-primary hover:bg-secondary shadow-none";
 const arrowButton = "h-11 w-11 shrink-0 rounded-full border border-ink-foreground/30 bg-transparent text-ink-foreground shadow-none hover:bg-ink-foreground/10 hover:text-ink-foreground disabled:opacity-35";
@@ -112,9 +111,11 @@ function FeatureCarousel() {
         <div className="ms-auto flex items-center gap-2">
           <CarouselPreviousArrow />
           <CarouselNextArrow />
-          <Button type="button" variant="ghost" size="icon" className={arrowButton} onClick={toggleAutoplay} aria-pressed={playing} aria-label={playing ? "Pausar a passagem automática dos itens" : "Continuar a passagem automática dos itens"}>
-            {playing ? <Pause aria-hidden /> : <Play aria-hidden />}
-          </Button>
+          {count > 1 && (
+            <Button type="button" variant="ghost" size="icon" className={arrowButton} onClick={toggleAutoplay} aria-pressed={playing} aria-label={playing ? "Pausar a passagem automática dos itens" : "Continuar a passagem automática dos itens"}>
+              {playing ? <Pause aria-hidden /> : <Play aria-hidden />}
+            </Button>
+          )}
         </div>
       </div>
 
@@ -199,7 +200,7 @@ export function Monitoramento() {
         <div className="mt-16">
           <h3 className="text-3xl">Para quem é</h3>
           <div className="mt-8 grid gap-5 md:grid-cols-2">
-            <article className="rounded-[14px] bg-ink-foreground/[0.06] p-8"><h4 className="font-display text-2xl">Já é paciente da Dra. Aline</h4><p className="mt-3 leading-relaxed text-ink-foreground/85">Ative o Monitoramento 360° e passe a ser acompanhada também entre as consultas.</p><Button variant="link" asChild className="mt-4 h-auto min-h-11 whitespace-normal px-0 text-base text-blush"><a href={whatsappMonitoramentoUrl} target="_blank" rel="noopener noreferrer">Quero ativar<ArrowUpRight aria-hidden /></a></Button></article>
+            <article className="rounded-[14px] bg-ink-foreground/[0.06] p-8"><h4 className="font-display text-2xl">Já é paciente da Dra. Aline</h4><p className="mt-3 leading-relaxed text-ink-foreground/85">Ative o Monitoramento 360° e passe a ser acompanhado e acompanhada também entre as consultas.</p><Button variant="link" asChild className="mt-4 h-auto min-h-11 whitespace-normal px-0 text-base text-blush"><a href={whatsappMonitoramentoUrl} target="_blank" rel="noopener noreferrer">Quero ativar<ArrowUpRight aria-hidden /></a></Button></article>
             <article className="rounded-[14px] bg-ink-foreground/[0.06] p-8"><h4 className="font-display text-2xl">Ainda não é paciente</h4><p className="mt-3 leading-relaxed text-ink-foreground/85">Agende sua consulta inicial e comece seu acompanhamento já com o aplicativo.</p><Button variant="link" asChild className="mt-4 h-auto min-h-11 whitespace-normal px-0 text-base text-blush"><a href={whatsappUrl} target="_blank" rel="noopener noreferrer">Agendar consulta inicial<ArrowUpRight aria-hidden /></a></Button></article>
           </div>
         </div>

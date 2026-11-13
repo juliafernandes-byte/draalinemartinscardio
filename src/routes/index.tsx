@@ -122,10 +122,10 @@ function Index() {
         <section className="section-pad">
           <div className={`${wrap} grid items-center gap-12 md:grid-cols-[1.15fr_1fr]`}>
             <div>
-              <p className="eyebrow">Cardiologista em Brasília · CRM-DF 15170 · RQE 10578 / 10577</p>
+              <p className="eyebrow">Cardiologista · CRM-DF 15170 · RQE 10578 / 10577</p>
                <h1 className="mt-5 text-[2.5rem] leading-[1.08] md:text-6xl">Cuidar do coração antes que ele dê sinais.</h1>
               <p className="mt-6 max-w-xl text-lg leading-relaxed text-muted-foreground">
-                 Cardiologista com mais de 20 anos de experiência, com atuação preventiva e atendimento particular feito com tempo, escuta e atenção. Presencial e online.
+                 Cardiologista com mais de 20 anos de experiência, com atuação preventiva e atendimento particular feito com tempo, escuta e atenção.
               </p>
                <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
                  <Button asChild className={`${btnPrimary} h-auto whitespace-normal shadow-none`}><a {...ext}>Agendar consulta</a></Button>
@@ -166,8 +166,8 @@ function Index() {
             <div>
               <p className="eyebrow">Sobre a Dra. Aline</p>
               <h2 className="mt-4 text-4xl leading-tight md:text-5xl">Medicina feita com escuta, ciência e presença.</h2>
-              <p className="mt-6 leading-relaxed text-muted-foreground">Sou médica cardiologista com mais de 20 anos de experiência e atuo na saúde cardiovascular de forma preventiva, para promover saúde e bem-estar com carinho e atenção. Atendo pacientes particulares de forma presencial e online, em Brasília.</p>
-              <p className="mt-4 leading-relaxed text-muted-foreground">Acredito que o melhor momento de cuidar do coração é antes da doença aparecer — quando ainda dá para mudar hábitos com mais leveza e menos remédio.</p>
+              <p className="mt-6 leading-relaxed text-muted-foreground">Sou médica cardiologista com mais de 20 anos de experiência e atuo na saúde cardiovascular de forma preventiva, para promover saúde e bem-estar com atenção.</p>
+              <p className="mt-4 leading-relaxed text-muted-foreground">Acredito que o melhor momento de cuidar do coração é antes da doença aparecer, quando ainda é possível mudar hábitos com mais leveza.</p>
               <p className="eyebrow mt-8">Formação acadêmica</p>
               <ul className="mt-4 space-y-3">
                 {[
@@ -191,7 +191,7 @@ function Index() {
           <div className={wrap}>
             <p className="eyebrow">Consulta particular</p>
             <h2 className="mt-4 text-4xl leading-tight md:text-5xl">Uma consulta feita com tempo para você.</h2>
-            <p className="mt-6 max-w-3xl text-lg leading-relaxed text-muted-foreground">Na consulta com a Dra. Aline, você não é só mais um horário na agenda. É o momento de olhar para a sua saúde do coração por inteiro.</p>
+            <p className="mt-6 max-w-3xl text-lg leading-relaxed text-muted-foreground">Na minha consulta, você não é só mais um horário na agenda. É o momento de olhar para a sua saúde do coração por inteiro.</p>
             <h3 className="mt-10 text-2xl">O que a consulta inclui</h3>
             <ul className="mt-5 grid gap-4 md:grid-cols-2">
               {["Escuta da sua história, rotina e hábitos", "Avaliação do seu risco cardiovascular", "Explicação clara dos exames e do tratamento", "Plano de cuidado individual, com foco em prevenção"].map(text => <li key={text} className="flex gap-3"><Check size={20} strokeWidth={1.5} className="shrink-0 text-primary" aria-hidden />{text}</li>)}
@@ -226,7 +226,7 @@ function Index() {
             <div>
               <p className="eyebrow">Coração da mulher</p>
               <h2 className="mt-4 text-4xl leading-tight md:text-5xl">Depois dos 40, o coração da mulher pede um olhar próprio.</h2>
-              <p className="mt-6 text-lg leading-relaxed text-muted-foreground">As doenças cardiovasculares são a principal causa de morte entre mulheres no Brasil — e muitas vezes os sinais não são a dor no peito clássica. Perimenopausa, menopausa e o histórico das gestações mudam o risco.</p>
+              <p className="mt-6 text-lg leading-relaxed text-muted-foreground">As doenças cardiovasculares são a principal causa de morte entre mulheres no Brasil e, muitas vezes, os sinais não são a dor no peito clássica.</p>
             </div>
             <div className="grid gap-4 sm:grid-cols-2">
               {women.map((w) => (
