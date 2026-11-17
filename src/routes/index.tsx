@@ -98,6 +98,29 @@ function Placeholder({ text, className }: { text: string; className: string }) {
 /** Foto do hero: arquivo em public/foto-dra-aline.jpg. Sem arquivo, aparece o placeholder. */
 const HERO_PHOTO_SRC = "/foto-dra-aline.jpg";
 const ARCH = "rounded-t-[999px] rounded-b-[14px]";
+/** Foto da seção Sobre: arquivo em public/foto-dra-alinee.jpg. Sem arquivo, aparece o placeholder. */
+const SOBRE_PHOTO_SRC = "/foto-dra-alinee.jpg";
+function SobrePhoto() {
+  const [failed, setFailed] = useState(false);
+  const ref = useRef<HTMLImageElement>(null);
+  useEffect(() => {
+    const img = ref.current;
+    if (img && img.complete && img.naturalWidth === 0) setFailed(true);
+  }, []);
+  return (
+    <div className="relative mx-auto w-full max-w-[400px] md:max-w-[440px]">
+      <div aria-hidden className="absolute inset-0 translate-x-3 translate-y-3 rounded-[14px] bg-secondary" />
+      <div className="relative overflow-hidden rounded-[14px] border border-primary/50 bg-secondary">
+        {failed ? (
+          <Placeholder text="Foto da Dra. Aline no consultório" className="aspect-[3/4] w-full rounded-[14px]" />
+        ) : (
+          <img ref={ref} src={SOBRE_PHOTO_SRC} alt="Dra. Aline Martins Dall'Orto sentada ao lado de um aparelho de ultrassonografia no consultório" onError={() => setFailed(true)} loading="lazy" className="aspect-[3/4] w-full object-cover object-center" />
+        )}
+      </div>
+    </div>
+  );
+}
+
 function HeroPhoto() {
   const [failed, setFailed] = useState(false);
   const ref = useRef<HTMLImageElement>(null);
@@ -192,7 +215,7 @@ function Index() {
         {/* Sobre */}
         <section id="sobre" className="section-pad">
           <div className={`${wrap} grid items-center gap-12 md:grid-cols-2`}>
-            <Placeholder text="Foto da Dra. Aline no consultório" className="aspect-square w-full rounded-[14px] bg-muted" />
+            <SobrePhoto />
             <div>
               <p className="eyebrow">Sobre a Dra. Aline</p>
               <h2 className="mt-4 text-4xl leading-tight md:text-5xl">Medicina feita com escuta, ciência e presença.</h2>
