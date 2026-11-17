@@ -161,14 +161,14 @@ function Index() {
               <p className="eyebrow mt-3">Cardiologista · Prevenção e longevidade</p>
               <p className="mt-2 text-sm text-muted-foreground">CRM-DF 15170 · RQE 10578 / 10577</p>
               <h1 className="mx-auto mt-6 max-w-3xl text-[2.5rem] leading-[1.08] md:mx-0 md:text-5xl">Cuidar do coração antes que ele dê sinais.</h1>
-              <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-muted-foreground md:mx-0">Médica há mais de 20 anos, com atuação preventiva e atendimento particular feito com tempo, escuta e atenção. Presencial e online.</p>
+              <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-muted-foreground md:mx-0">Médica há mais de 20 anos, com atuação preventiva e atendimento particular feito com tempo, escuta e atenção.</p>
               <div className="mt-8 flex w-full flex-col justify-center gap-3 sm:w-auto sm:flex-row sm:flex-wrap md:justify-start">
                 <Button asChild className={`${btnPrimary} h-auto whitespace-normal shadow-none`}><a {...ext}>Agendar consulta</a></Button>
                 <Button asChild variant="outline" className={`${btnOutline} h-auto whitespace-normal shadow-none`}><a href="#cardio360">Conhecer o Cardio 360</a></Button>
                 <Button asChild variant="outline" className={`${btnOutline} h-auto whitespace-normal shadow-none`}><a href="#localizacao">Como chegar</a></Button>
               </div>
               <ul className="mt-6 flex flex-wrap justify-center gap-x-5 gap-y-3 text-sm text-muted-foreground md:justify-start">
-                {["Mais de 20 anos de formada", "Consulta sem pressa", "Presencial e online"].map(text => <li key={text} className="flex items-center gap-2"><Check size={16} className="shrink-0 text-primary" strokeWidth={1.5} aria-hidden />{text}</li>)}
+                {["Mais de 20 anos de formada", "Consulta sem pressa"].map(text => <li key={text} className="flex items-center gap-2"><Check size={16} className="shrink-0 text-primary" strokeWidth={1.5} aria-hidden />{text}</li>)}
               </ul>
             </div>
             <div className="order-1 md:order-2"><HeroPhoto /></div>
