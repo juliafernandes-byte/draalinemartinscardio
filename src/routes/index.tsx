@@ -47,23 +47,25 @@ const btnPrimary = `${btn} bg-primary text-primary-foreground hover:bg-primary-h
 const btnOutline = `${btn} border border-navy text-navy hover:bg-navy hover:text-background`;
 const btnCream = `${btn} bg-background text-primary hover:bg-secondary`;
 const wrap = "mx-auto w-full max-w-6xl px-5 md:px-8";
+/** O topo usa uma faixa mais larga que o corpo do site para o menu caber inteiro no computador. */
+const wrapHeader = "mx-auto w-full max-w-[1360px] px-5 md:px-8";
 const ext = { href: whatsappUrl, target: "_blank", rel: "noopener noreferrer" };
 
 function Header() {
   const [open, setOpen] = useState(false);
   return (
     <header className="fixed inset-x-0 top-0 z-40 border-b border-border/60 bg-background/90 backdrop-blur">
-      <div className={`${wrap} flex h-[76px] items-center justify-between gap-4`}>
-        <a href="#inicio" className="min-w-0" aria-label="Dra. Aline Martins Dall'Orto, início"><Logo /></a>
-        <nav aria-label="Principal" className="hidden shrink-0 items-center gap-4 min-[1440px]:flex">
+      <div className={`${wrapHeader} flex h-[76px] items-center justify-between gap-4`}>
+        <a href="#inicio" className="shrink-0" aria-label="Dra. Aline Martins Dall'Orto, início"><Logo /></a>
+        <nav aria-label="Principal" className="hidden shrink-0 items-center gap-3.5 min-[1280px]:flex">
           {NAV.map((n) => (
-            <a key={n.href} href={n.href} className="inline-flex min-h-11 items-center whitespace-nowrap text-[13.5px] leading-none text-muted-foreground transition-colors hover:text-primary">{n.label}{n.href === "#cardio360" && <span className="ml-1.5 rounded-full bg-primary px-1.5 py-[3px] text-[9px] font-semibold leading-none text-primary-foreground">Novo</span>}</a>
+            <a key={n.href} href={n.href} className="inline-flex min-h-11 items-center whitespace-nowrap text-[13px] leading-none text-muted-foreground transition-colors hover:text-primary">{n.label}{n.href === "#cardio360" && <span className="ml-1.5 rounded-full bg-primary px-1.5 py-[3px] text-[9px] font-semibold leading-none text-primary-foreground">Novo</span>}</a>
           ))}
-          <a {...ext} className={`${btnPrimary} ml-1 shrink-0 whitespace-nowrap`}>Agendar consulta</a>
+          <a {...ext} className={`${btnPrimary} ml-1 shrink-0 whitespace-nowrap px-5`}>Agendar consulta</a>
         </nav>
         <Button
           variant="ghost"
-          className="inline-flex h-11 w-11 items-center justify-center rounded-full text-primary min-[1440px]:hidden"
+          className="inline-flex h-11 w-11 items-center justify-center rounded-full text-primary min-[1280px]:hidden"
           aria-label={open ? "Fechar menu" : "Abrir menu"}
           aria-expanded={open}
           onClick={() => setOpen(!open)}
@@ -72,7 +74,7 @@ function Header() {
         </Button>
       </div>
       {open && (
-        <nav aria-label="Menu móvel" className="border-t border-border bg-background min-[1440px]:hidden">
+        <nav aria-label="Menu móvel" className="border-t border-border bg-background min-[1280px]:hidden">
           <div className={`${wrap} flex flex-col py-4`}>
             {NAV.map((n) => (
               <a key={n.href} href={n.href} onClick={() => setOpen(false)} className="flex min-h-11 items-center gap-2 text-foreground">{n.label}{n.href === "#cardio360" && <span className="rounded-full bg-primary px-2 py-0.5 text-[10px] font-semibold text-primary-foreground">Novo</span>}</a>
@@ -93,8 +95,9 @@ function Placeholder({ text, className }: { text: string; className: string }) {
   );
 }
 
-/** Foto do hero: envie o arquivo como public/foto-dra-aline.jpg. Sem arquivo, aparece o placeholder. */
+/** Foto do hero: arquivo em public/foto-dra-aline.jpg. Sem arquivo, aparece o placeholder. */
 const HERO_PHOTO_SRC = "/foto-dra-aline.jpg";
+const ARCH = "rounded-t-[999px] rounded-b-[14px]";
 function HeroPhoto() {
   const [failed, setFailed] = useState(false);
   const ref = useRef<HTMLImageElement>(null);
@@ -102,17 +105,16 @@ function HeroPhoto() {
     const img = ref.current;
     if (img && img.complete && img.naturalWidth === 0) setFailed(true);
   }, []);
-  const frame = "mx-auto aspect-square w-56 overflow-hidden rounded-full border border-primary p-1.5 md:w-72";
-  if (failed) {
-    return (
-      <div className={frame}>
-        <div role="img" aria-label="Foto da Dra. Aline" className="flex h-full w-full items-center justify-center rounded-full bg-secondary px-6 text-center text-muted-foreground">Foto da Dra. Aline</div>
-      </div>
-    );
-  }
   return (
-    <div className={frame}>
-      <img ref={ref} src={HERO_PHOTO_SRC} alt="Dra. Aline Martins Dall'Orto, cardiologista" onError={() => setFailed(true)} className="h-full w-full rounded-full object-cover" />
+    <div className="relative mx-auto w-full max-w-[300px] sm:max-w-[340px] md:w-full md:max-w-[400px]">
+      <div aria-hidden className={`absolute inset-0 translate-x-3 translate-y-3 ${ARCH} bg-secondary`} />
+      <div className={`relative overflow-hidden border border-primary/50 bg-secondary ${ARCH}`}>
+        {failed ? (
+          <div role="img" aria-label="Foto da Dra. Aline" className="flex aspect-[4/5] w-full items-center justify-center px-10 text-center text-muted-foreground">Foto da Dra. Aline</div>
+        ) : (
+          <img ref={ref} src={HERO_PHOTO_SRC} alt="Dra. Aline Martins Dall'Orto, cardiologista, sentada no consultório" onError={() => setFailed(true)} className="aspect-[4/5] w-full object-cover object-top" />
+        )}
+      </div>
     </div>
   );
 }
@@ -153,21 +155,23 @@ function Index() {
       <main id="inicio" className="pt-[76px] text-foreground">
         {/* Hero */}
         <section className="section-pad">
-          <div className={`${wrap} flex flex-col items-center text-center`}>
-            <HeroPhoto />
-            <p className="mt-8 font-brand text-xl font-medium uppercase text-navy md:text-2xl">Dra. Aline Martins Dall'Orto</p>
-            <p className="eyebrow mt-3">Cardiologista · Prevenção e longevidade</p>
-            <p className="mt-2 text-sm text-muted-foreground">CRM-DF 15170 · RQE 10578 / 10577</p>
-            <h1 className="mt-6 max-w-3xl text-[2.5rem] leading-[1.08] md:text-6xl">Cuidar do coração antes que ele dê sinais.</h1>
-            <p className="mt-6 max-w-2xl text-lg leading-relaxed text-muted-foreground">Médica há mais de 20 anos, com atuação preventiva e atendimento particular feito com tempo, escuta e atenção. Presencial e online.</p>
-            <div className="mt-8 flex w-full flex-col justify-center gap-3 sm:w-auto sm:flex-row sm:flex-wrap">
-              <Button asChild className={`${btnPrimary} h-auto whitespace-normal shadow-none`}><a {...ext}>Agendar consulta</a></Button>
-              <Button asChild variant="outline" className={`${btnOutline} h-auto whitespace-normal shadow-none`}><a href="#cardio360">Conhecer o Cardio 360</a></Button>
-              <Button asChild variant="outline" className={`${btnOutline} h-auto whitespace-normal shadow-none`}><a href="#localizacao">Como chegar</a></Button>
+          <div className={`${wrap} grid items-center gap-10 md:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] md:gap-14`}>
+            <div className="order-2 text-center md:order-1 md:text-left">
+              <p className="font-brand text-xl font-medium uppercase text-navy md:text-2xl">Dra. Aline Martins Dall'Orto</p>
+              <p className="eyebrow mt-3">Cardiologista · Prevenção e longevidade</p>
+              <p className="mt-2 text-sm text-muted-foreground">CRM-DF 15170 · RQE 10578 / 10577</p>
+              <h1 className="mx-auto mt-6 max-w-3xl text-[2.5rem] leading-[1.08] md:mx-0 md:text-5xl">Cuidar do coração antes que ele dê sinais.</h1>
+              <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-muted-foreground md:mx-0">Médica há mais de 20 anos, com atuação preventiva e atendimento particular feito com tempo, escuta e atenção. Presencial e online.</p>
+              <div className="mt-8 flex w-full flex-col justify-center gap-3 sm:w-auto sm:flex-row sm:flex-wrap md:justify-start">
+                <Button asChild className={`${btnPrimary} h-auto whitespace-normal shadow-none`}><a {...ext}>Agendar consulta</a></Button>
+                <Button asChild variant="outline" className={`${btnOutline} h-auto whitespace-normal shadow-none`}><a href="#cardio360">Conhecer o Cardio 360</a></Button>
+                <Button asChild variant="outline" className={`${btnOutline} h-auto whitespace-normal shadow-none`}><a href="#localizacao">Como chegar</a></Button>
+              </div>
+              <ul className="mt-6 flex flex-wrap justify-center gap-x-5 gap-y-3 text-sm text-muted-foreground md:justify-start">
+                {["Mais de 20 anos de formada", "Consulta sem pressa", "Presencial e online"].map(text => <li key={text} className="flex items-center gap-2"><Check size={16} className="shrink-0 text-primary" strokeWidth={1.5} aria-hidden />{text}</li>)}
+              </ul>
             </div>
-            <ul className="mt-6 flex flex-wrap justify-center gap-x-5 gap-y-3 text-sm text-muted-foreground">
-              {["Mais de 20 anos de formada", "Consulta sem pressa", "Presencial e online"].map(text => <li key={text} className="flex items-center gap-2"><Check size={16} className="shrink-0 text-primary" strokeWidth={1.5} aria-hidden />{text}</li>)}
-            </ul>
+            <div className="order-1 md:order-2"><HeroPhoto /></div>
           </div>
         </section>
 

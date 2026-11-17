@@ -8,3 +8,7 @@
 - [x] "O que o Monitoramento 360° oferece" em carrossel horizontal, com setas, pontos e arrasto.
 # Ajustes aprovados pela cliente
 - [x] Hero centrado com foto, Cardio 360, 20 anos de formada, textos, FAQ, contato real, Localização, Publicações.
+# Foto real e arranjo do topo
+- [x] Salvar a foto enviada em public/foto-dra-aline.jpg e usá-la no hero.
+- [x] Hero em duas colunas: texto à esquerda, foto à direita (no celular, foto acima do texto).
+- [x] Menu do topo com os 7 itens numa linha só a partir de 1280px.
