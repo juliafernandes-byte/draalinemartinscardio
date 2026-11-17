@@ -141,7 +141,7 @@
 html { scroll-behavior: smooth; }
 section[id] { scroll-margin-top: 88px; }
 h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 500; color: var(--navy); letter-spacing: 0; }
-#monitoramento h2, #monitoramento h3, #monitoramento h4 { color: var(--ink-foreground); }
+#cardio360 h2, #cardio360 h3, #cardio360 h4 { color: var(--ink-foreground); }
 #agendar h2 { color: var(--primary-foreground); }
 
 @utility eyebrow {
