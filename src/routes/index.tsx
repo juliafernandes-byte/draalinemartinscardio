@@ -183,7 +183,7 @@ function Index() {
               <p className="font-brand text-xl font-medium uppercase text-navy md:text-2xl">Dra. Aline Martins Dall'Orto</p>
               <p className="eyebrow mt-3">Cardiologista · Prevenção e longevidade</p>
               <p className="mt-2 text-sm text-muted-foreground">CRM-DF 15170 · RQE 10578 / 10577</p>
-              <h1 className="mx-auto mt-6 max-w-3xl text-[2.5rem] leading-[1.08] md:mx-0 md:text-5xl">Cuidar do coração antes que ele dê sinais.</h1>
+              <h1 className="mx-auto mt-6 max-w-3xl text-[1.65rem] leading-[1.15] md:mx-0 md:text-5xl md:leading-[1.08]">Cuidar do coração antes que ele dê sinais.</h1>
               <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-muted-foreground md:mx-0">Médica há mais de 20 anos, com atuação preventiva e atendimento particular feito com tempo, escuta e atenção.</p>
               <div className="mt-8 flex w-full flex-col justify-center gap-3 sm:w-auto sm:flex-row sm:flex-wrap md:justify-start">
                 <Button asChild className={`${btnPrimary} h-auto whitespace-normal shadow-none`}><a {...ext}>Agendar consulta</a></Button>
