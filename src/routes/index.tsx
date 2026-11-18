@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
 import {
-  Smartphone, Mail, ExternalLink, FileText, ArrowUpRight, Clock, GraduationCap, Heart, Menu, MessageCircle, X, Instagram, MapPin, Phone, Video, Building2, Check,
+  Smartphone, Mail, ExternalLink, FileText, ArrowUpRight, Clock, GraduationCap, Heart, Menu, MessageCircle, X, Instagram, MapPin, Phone, Video, Building2, Check, Award,
 } from "lucide-react";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Logo } from "@/components/logo";
@@ -142,11 +142,45 @@ function HeroPhoto() {
   );
 }
 
-/** Preencha com os trabalhos da Dra. Aline. */
-const publications = [
-  { title: "[Título do trabalho]", venue: "[Revista ou evento · ano]", url: "#" },
-  { title: "[Título do trabalho]", venue: "[Revista ou evento · ano]", url: "#" },
-  { title: "[Título do trabalho]", venue: "[Revista ou evento · ano]", url: "#" },
+/** Trabalhos da Dra. Aline. `highlight: true` marca o card de destaque (largura total). */
+type Publication = {
+  title: string;
+  original: string;
+  venue: string;
+  authorship: string;
+  url: string;
+  highlight?: boolean;
+  badge?: string;
+};
+const publications: Publication[] = [
+  {
+    title:
+      "Análise comparativa de variáveis ecocardiográficas convencionais e de speckle tracking entre transplantados cardíacos sem rejeição e indivíduos saudáveis",
+    original:
+      "Comparative Analysis of Conventional and Speckle Tracking Echocardiographic Variables between Patients with Unrejected Heart Transplants and Healthy Individuals",
+    venue: "XXII Congresso de Cardiologia de Brasília · SBC/DF · 2022",
+    authorship:
+      "Trabalho premiado no congresso e publicado em 2024 nos Arquivos Brasileiros de Cardiologia (SBC), v. 121, n. 8. Dra. Aline é a primeira autora.",
+    url: "https://abccardiol.org/en/article/comparative-analysis-of-conventional-and-speckle-tracking-echocardiographic-variables-between-patients-with-unrejected-heart-transplants-and-healthy-individuals/",
+    highlight: true,
+    badge: "1º lugar · Melhor Tema Livre",
+  },
+  {
+    title: "Ressecção de sarcoma cardíaco recorrente com autotransplante parcial modificado",
+    original: "Recurrent Cardiac Sarcoma Resection With Modified Partial Autotransplantation",
+    venue: "JACC: Case Reports · 2021 · v. 3, n. 15",
+    authorship: "Primeira autora",
+    url: "https://doi.org/10.1016/j.jaccas.2021.08.005",
+  },
+  {
+    title:
+      "Rejeição celular aguda em transplantados cardíacos: strain longitudinal global, trabalho miocárdico e um grupo exclusivo de doença de Chagas",
+    original:
+      "Acute Cellular Rejection in Heart Transplant Patients: Insights of Global Longitudinal Strain, Myocardial Work, and an Exclusive Group of Chagas Disease",
+    venue: "Frontiers in Cardiovascular Medicine · 2022 · v. 9",
+    authorship: "Coautora",
+    url: "https://www.frontiersin.org/article/10.3389/fcvm.2022.841698",
+  },
 ];
 
 const diffs = [
@@ -241,13 +275,27 @@ function Index() {
           <div className={wrap}>
             <p className="eyebrow">Produção científica</p>
             <h2 className="mt-4 text-4xl leading-tight md:text-5xl">Trabalhos publicados</h2>
-            <p className="mt-6 max-w-2xl text-lg leading-relaxed text-muted-foreground">Artigos e pesquisas da Dra. Aline em cardiologia e ecocardiografia.</p>
-            <div className="mt-10 grid gap-5 md:grid-cols-3">
-              {publications.map((pub, i) => (
-                <article key={i} className="flex flex-col rounded-[14px] border border-border p-6">
+            <p className="mt-6 max-w-2xl text-lg leading-relaxed text-muted-foreground">Pesquisa em ecocardiografia avançada e transplante cardíaco, publicada em revistas nacionais e internacionais.</p>
+            {publications.filter(p => p.highlight).map((pub) => (
+              <article key={pub.url} className="mt-10 rounded-[14px] border border-border border-l-4 border-l-primary bg-navy-soft p-6 md:p-8">
+                <span className="inline-flex items-center gap-2 rounded-full bg-primary px-3.5 py-1.5 text-[13px] font-semibold leading-none text-primary-foreground">
+                  <Award size={16} strokeWidth={1.5} aria-hidden />{pub.badge}
+                </span>
+                <p className="mt-4 text-sm text-muted-foreground">{pub.venue}</p>
+                <h3 className="mt-2 text-2xl leading-snug md:text-3xl">{pub.title}</h3>
+                <p className="mt-3 leading-relaxed text-muted-foreground">{pub.authorship}</p>
+                <p className="mt-3 text-sm italic leading-relaxed text-muted-foreground">{pub.original}</p>
+                <a href={pub.url} target="_blank" rel="noopener noreferrer" className="mt-5 inline-flex min-h-11 items-center gap-1.5 font-semibold text-primary hover:underline">Ler publicação<ArrowUpRight size={16} aria-hidden /></a>
+              </article>
+            ))}
+            <div className="mt-5 grid gap-5 md:grid-cols-2">
+              {publications.filter(p => !p.highlight).map((pub) => (
+                <article key={pub.url} className="flex flex-col rounded-[14px] border border-border p-6">
                   <FileText className="text-primary" size={26} strokeWidth={1.5} aria-hidden />
-                  <h3 className="mt-4 text-xl">{pub.title}</h3>
+                  <h3 className="mt-4 text-xl leading-snug">{pub.title}</h3>
                   <p className="mt-2 text-sm text-muted-foreground">{pub.venue}</p>
+                  <p className="mt-1 text-sm text-muted-foreground">{pub.authorship}</p>
+                  <p className="mt-2 text-sm italic leading-relaxed text-muted-foreground">{pub.original}</p>
                   <a href={pub.url} target="_blank" rel="noopener noreferrer" className="mt-auto inline-flex min-h-11 items-center gap-1.5 pt-3 font-semibold text-primary hover:underline">Ler publicação<ArrowUpRight size={16} aria-hidden /></a>
                 </article>
               ))}
