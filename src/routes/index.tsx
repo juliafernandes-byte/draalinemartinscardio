@@ -273,7 +273,14 @@ function Index() {
         {/* Sobre */}
         <section id="sobre" className="section-pad">
           <div className={`${wrap} grid items-center gap-12 md:grid-cols-2`}>
-            <SobrePhoto />
+            <div className="flex flex-col items-center gap-7">
+              <SobrePhoto />
+              <Button asChild variant="outline" className={`${btnOutline} h-auto shadow-none`}>
+                <a href="https://www.instagram.com/dra.alinemartinscardio/" target="_blank" rel="noopener noreferrer">
+                  <Instagram size={20} strokeWidth={1.5} aria-hidden />Instagram da Dra. Aline
+                </a>
+              </Button>
+            </div>
             <div>
               <p className="eyebrow">Sobre a Dra. Aline</p>
               <h2 className="mt-4 text-4xl leading-tight md:text-5xl">Medicina feita com escuta, ciência e presença.</h2>
