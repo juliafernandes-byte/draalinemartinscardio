@@ -178,23 +178,20 @@ function Index() {
       <main id="inicio" className="pt-[76px] text-foreground">
         {/* Hero */}
         <section className="section-pad">
-          <div className={`${wrap} grid grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] items-center gap-6 md:gap-14`}>
-            <div className="text-center md:text-left">
+          <div className={`${wrap} grid items-center gap-10 md:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] md:gap-14`}>
+            <div className="order-2 text-center md:order-1 md:text-left">
               <p className="font-brand text-xl font-medium uppercase text-navy md:text-2xl">Dra. Aline Martins Dall'Orto</p>
               <p className="eyebrow mt-3">Cardiologista · Prevenção e longevidade</p>
               <p className="mt-2 text-sm text-muted-foreground">CRM-DF 15170 · RQE 10578 / 10577</p>
-              <h1 className="mx-auto mt-6 max-w-3xl text-[1.65rem] leading-[1.15] md:mx-0 md:text-5xl md:leading-[1.08]">Cuidar do coração antes que ele dê sinais.</h1>
+              <h1 className="mx-auto mt-6 max-w-3xl text-[2.5rem] leading-[1.08] md:mx-0 md:text-5xl">Cuidar do coração antes que ele dê sinais.</h1>
               <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-muted-foreground md:mx-0">Médica há mais de 20 anos, com atuação preventiva e atendimento particular feito com tempo, escuta e atenção.</p>
               <div className="mt-8 flex w-full flex-col justify-center gap-3 sm:w-auto sm:flex-row sm:flex-wrap md:justify-start">
                 <Button asChild className={`${btnPrimary} h-auto whitespace-normal shadow-none`}><a {...ext}>Agendar consulta</a></Button>
                 <Button asChild variant="outline" className={`${btnOutline} h-auto whitespace-normal shadow-none`}><a href="#cardio360">Conhecer o Cardio 360</a></Button>
                 <Button asChild variant="outline" className={`${btnOutline} h-auto whitespace-normal shadow-none`}><a href="#localizacao">Como chegar</a></Button>
               </div>
-              <ul className="mt-6 flex flex-wrap justify-center gap-x-5 gap-y-3 text-sm text-muted-foreground md:justify-start">
-                {["Mais de 20 anos de formada", "Consulta sem pressa"].map(text => <li key={text} className="flex items-center gap-2"><Check size={16} className="shrink-0 text-primary" strokeWidth={1.5} aria-hidden />{text}</li>)}
-              </ul>
             </div>
-            <div><HeroPhoto /></div>
+            <div className="order-1 md:order-2"><HeroPhoto /></div>
           </div>
         </section>
 
@@ -219,7 +216,7 @@ function Index() {
             <div>
               <p className="eyebrow">Sobre a Dra. Aline</p>
               <h2 className="mt-4 text-4xl leading-tight md:text-5xl">Medicina feita com escuta, ciência e presença.</h2>
-              <p className="mt-6 leading-relaxed text-muted-foreground">Sou médica há mais de 20 anos e cardiologista com atuação preventiva, para promover saúde e bem-estar com carinho e atenção. Atendo pacientes particulares de forma presencial e online, em Brasília.</p>
+              <p className="mt-6 leading-relaxed text-muted-foreground">Sou médica há mais de 20 anos e cardiologista com atuação preventiva, para promover saúde e bem-estar com carinho e atenção. Atendo pacientes particulares de forma online e presencial em Brasília.</p>
               <p className="mt-4 leading-relaxed text-muted-foreground">Acredito que o melhor momento de cuidar do coração é antes da doença aparecer, quando ainda é possível mudar hábitos com mais leveza.</p>
               <p className="eyebrow mt-8">Formação acadêmica</p>
               <ul className="mt-4 space-y-3">
@@ -229,7 +226,7 @@ function Index() {
                   "Residência em Cardiologia pela Universidade de Brasília (UnB) e Instituto de Cardiologia e Transplante do Distrito Federal (ICTDF)",
                   "Residência em Ecocardiografia pelo ICTDF",
                   "Mestrado em Ciências Médicas pela Universidade de Brasília (UnB)",
-                  "Título de Especialista em Cardiologia e Ecocardiografia",
+                  "Título de especialista em Cardiologia e Ecocardiografia pela Sociedade Brasileira de Cardiologia (SBC)",
                 ].map((i) => (
                   <li key={i} className="flex gap-3"><Check className="mt-0.5 shrink-0 text-primary" size={20} strokeWidth={1.5} aria-hidden />{i}</li>
                 ))}
@@ -263,7 +260,7 @@ function Index() {
           <div className={wrap}>
             <p className="eyebrow">Consulta particular</p>
             <h2 className="mt-4 text-4xl leading-tight md:text-5xl">Uma consulta feita com tempo para você.</h2>
-            <p className="mt-6 max-w-3xl text-lg leading-relaxed text-muted-foreground">Na minha consulta, você não é só mais um horário na agenda. É o momento de olhar para a sua saúde do coração por inteiro.</p>
+            <p className="mt-6 max-w-3xl text-lg leading-relaxed text-muted-foreground">Na minha consulta, você não é só mais um horário na agenda. É o momento de olhar para a sua saúde do seu coração por inteiro.</p>
             <h3 className="mt-10 text-2xl">O que a consulta inclui</h3>
             <ul className="mt-5 grid gap-4 md:grid-cols-2">
               {["Escuta da sua história, rotina e hábitos", "Avaliação do seu risco cardiovascular", "Explicação clara dos exames e do tratamento", "Plano de cuidado individual, com foco em prevenção"].map(text => <li key={text} className="flex gap-3"><Check size={20} strokeWidth={1.5} className="shrink-0 text-primary" aria-hidden />{text}</li>)}
@@ -275,8 +272,9 @@ function Index() {
                 <ul className="mt-4 space-y-2 text-muted-foreground">
                   <li>{ADDRESS_LINE_1}</li>
                   <li>{ADDRESS_LINE_2}</li>
-                  <li>[Dias e horários de atendimento]</li>
+                  <li>Segunda a sexta, 8h30 às 18h</li>
                   <li>Atendimento particular</li>
+                  <li>Pagamento por Pix ou cartão de crédito</li>
                 </ul>
               </article>
               <article className="rounded-[14px] bg-background p-8">
