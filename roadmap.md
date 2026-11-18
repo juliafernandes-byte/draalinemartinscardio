@@ -19,3 +19,7 @@
 # Sinal para agendamento
 - [x] Informar no formulário consulta de R$350,00, sinal de R$100,00 e saldo de R$250,00; equipe combina horário e orienta pagamento pelo WhatsApp.
 - [x] Informar estorno do sinal em cancelamentos e manutenção da validade em remarcações.
+# Quiz de agendamento
+- [x] Reestruturar em quatro passos com validação, progresso e navegação fixa.
+- [x] Atualizar mensagem e testes, mantendo origem, evento e privacidade.
+- [x] Conferir envio e apresentação em computador e 390px.
