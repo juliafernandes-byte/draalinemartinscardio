@@ -12,3 +12,7 @@
 - [x] Salvar a foto enviada em public/foto-dra-aline.jpg e usá-la no hero.
 - [x] Hero em duas colunas: texto à esquerda, foto à direita (no celular, foto acima do texto).
 - [x] Menu do topo com os 7 itens numa linha só a partir de 1280px.
+# Formulário de agendamento
+- [x] Criar duas etapas acessíveis, validação, aviso de urgência e confirmação sem guardar respostas.
+- [x] Integrar todos os convites de consulta, preservando os links do Cardio 360.
+- [x] Testar mensagem, origem, envio e apresentação em computador e 390px.

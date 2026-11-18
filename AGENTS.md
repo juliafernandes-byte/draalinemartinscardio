@@ -33,3 +33,4 @@ use the editor.
 - Keep the monitoring product presentation in a browser-safe presentational component; the phone is a noninteractive HTML/CSS illustration, not a working app.
 - Centralize consultation and monitoring WhatsApp destinations in the shared link module so each inquiry retains its intended message.
 - Keep the brand mark in the shared Logo component, fed by the official logo files served through CDN asset pointers; keep the footer on a light background because the official lockup's lettering is dark.
+- Use the shared scheduling provider and button for consultation inquiries; validate again in the pure outbound message helper, keep answers only in React state, and store only validated attribution in sessionStorage so this static site never persists patient responses.

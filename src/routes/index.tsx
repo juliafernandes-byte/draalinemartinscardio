@@ -8,6 +8,7 @@ import { Logo } from "@/components/logo";
 import { whatsappUrl, WHATSAPP_DISPLAY, EMAIL, ADDRESS_LINE_1, ADDRESS_LINE_2, MAPS_URL, MAPS_EMBED_URL } from "@/lib/whatsapp";
 import { Button } from "@/components/ui/button";
 import { Cardio360 } from "@/components/cardio360";
+import { AgendamentoProvider, AgendarButton } from "@/components/agendamento";
 
 const TITLE = "Dra. Aline Martins Dall'Orto | Cardiologista em Brasília";
 const DESC =
@@ -61,7 +62,7 @@ function Header() {
           {NAV.map((n) => (
             <a key={n.href} href={n.href} className="inline-flex min-h-11 items-center whitespace-nowrap text-[13px] leading-none text-muted-foreground transition-colors hover:text-primary">{n.label}{n.href === "#cardio360" && <span className="ml-1.5 rounded-full bg-primary px-1.5 py-[3px] text-[9px] font-semibold leading-none text-primary-foreground">Novo</span>}</a>
           ))}
-          <a {...ext} className={`${btnPrimary} ml-1 shrink-0 whitespace-nowrap px-5`}>Agendar consulta</a>
+          <AgendarButton className={`${btnPrimary} h-auto ml-1 shrink-0 whitespace-nowrap px-5`}>Agendar consulta</AgendarButton>
         </nav>
         <Button
           variant="ghost"
@@ -79,7 +80,7 @@ function Header() {
             {NAV.map((n) => (
               <a key={n.href} href={n.href} onClick={() => setOpen(false)} className="flex min-h-11 items-center gap-2 text-foreground">{n.label}{n.href === "#cardio360" && <span className="rounded-full bg-primary px-2 py-0.5 text-[10px] font-semibold text-primary-foreground">Novo</span>}</a>
             ))}
-            <a {...ext} className={`${btnPrimary} mt-3`}>Agendar consulta</a>
+            <AgendarButton onClick={() => setOpen(false)} className={`${btnPrimary} h-auto mt-3`}>Agendar consulta</AgendarButton>
           </div>
         </nav>
       )}
@@ -233,7 +234,7 @@ const faqs = [
 
 function Index() {
   return (
-    <>
+    <AgendamentoProvider>
       <Header />
       <main id="inicio" className="pt-[76px] text-foreground">
         {/* Hero */}
@@ -246,7 +247,7 @@ function Index() {
               <h1 className="mx-auto mt-6 max-w-3xl text-[2.5rem] leading-[1.08] md:mx-0 md:text-5xl">Cuidar do coração antes que ele dê sinais.</h1>
               <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-muted-foreground md:mx-0">Médica há mais de 20 anos, com atuação preventiva e atendimento particular feito com tempo, escuta e atenção.</p>
               <div className="mt-8 flex w-full flex-col justify-center gap-3 sm:w-auto sm:flex-row sm:flex-wrap md:justify-start">
-                <Button asChild className={`${btnPrimary} h-auto whitespace-normal px-4 shadow-none`}><a {...ext}>Agendar consulta</a></Button>
+                <AgendarButton className={`${btnPrimary} h-auto whitespace-normal px-4 shadow-none`}>Agendar consulta</AgendarButton>
                 <Button asChild variant="outline" className={`${btnOutline} h-auto whitespace-normal px-4 shadow-none`}><a href="#cardio360">Conhecer o Cardio 360</a></Button>
                 <Button asChild variant="outline" className={`${btnOutline} h-auto whitespace-normal px-4 shadow-none`}><a href="#localizacao">Como chegar</a></Button>
               </div>
@@ -354,7 +355,7 @@ function Index() {
                 <p className="mt-4 leading-relaxed text-muted-foreground">Pacientes do Cardio 360 também podem fazer os retornos online.</p>
               </article>
             </div>
-            <div className="mt-10 text-center"><Button asChild className={`${btnPrimary} h-auto whitespace-normal shadow-none`}><a {...ext}>Agendar minha consulta</a></Button></div>
+            <div className="mt-10 text-center"><AgendarButton className={`${btnPrimary} h-auto whitespace-normal shadow-none`}>Agendar minha consulta</AgendarButton></div>
           </div>
         </section>
 
@@ -403,7 +404,8 @@ function Index() {
             <div className="mt-8 grid gap-8 md:grid-cols-[1fr_1.6fr] md:items-start">
               <ul className="space-y-4 text-muted-foreground">
                 <li className="flex gap-3"><MapPin size={20} strokeWidth={1.5} className="mt-0.5 shrink-0 text-primary" aria-hidden /><span><span className="font-semibold text-foreground">{ADDRESS_LINE_1}</span><br />{ADDRESS_LINE_2}</span></li>
-                <li><a {...ext} className="flex min-h-11 items-center gap-3 hover:text-primary"><Phone size={20} strokeWidth={1.5} className="shrink-0 text-primary" aria-hidden />{WHATSAPP_DISPLAY}</a></li>
+                <li><AgendarButton variant="link" className="h-auto min-h-11 justify-start gap-3 px-0 text-base text-muted-foreground hover:text-primary"><Phone size={20} strokeWidth={1.5} className="shrink-0 text-primary" aria-hidden />{WHATSAPP_DISPLAY}</AgendarButton></li>
+                <li><AgendarButton className={`${btnPrimary} h-auto shadow-none`}>Agendar consulta</AgendarButton></li>
                 <li><a href={`mailto:${EMAIL}`} className="flex min-h-11 items-center gap-3 break-all hover:text-primary"><Mail size={20} strokeWidth={1.5} className="shrink-0 text-primary" aria-hidden />{EMAIL}</a></li>
                 <li><Button asChild variant="outline" className={`${btnOutline} h-auto whitespace-normal shadow-none`}><a href={MAPS_URL} target="_blank" rel="noopener noreferrer">Abrir no Google Maps<ExternalLink size={16} aria-hidden /></a></Button></li>
               </ul>
@@ -419,7 +421,7 @@ function Index() {
               <h2 className="text-4xl leading-tight md:text-5xl">Venha cuidar do seu bem mais precioso: o seu coração.</h2>
                <p className="mt-4 text-lg opacity-90">Atendimento particular, presencial e online.</p>
                <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row sm:flex-wrap">
-                 <Button asChild className={`${btnCream} h-auto whitespace-normal shadow-none`}><a {...ext}><MessageCircle size={18} strokeWidth={1.5} />Agendar consulta</a></Button>
+                 <AgendarButton className={`${btnCream} h-auto whitespace-normal shadow-none`}><MessageCircle size={18} strokeWidth={1.5} />Agendar consulta</AgendarButton>
                  <Button asChild variant="outline" className={`${btn} h-auto whitespace-normal border border-primary-foreground bg-transparent text-primary-foreground shadow-none hover:bg-background hover:text-primary`}><a href="#cardio360">Conhecer o Cardio 360</a></Button>
                </div>
             </div>
@@ -443,9 +445,9 @@ function Index() {
         </div>
       </footer>
 
-      <a {...ext} aria-label="Agendar pelo WhatsApp" className="fixed bottom-5 right-5 z-50 inline-flex h-14 w-14 items-center justify-center rounded-full bg-primary text-primary-foreground shadow-lg hover:bg-primary-hover">
+      <AgendarButton aria-label="Agendar pelo WhatsApp" className="fixed bottom-5 right-5 z-40 inline-flex h-14 w-14 items-center justify-center rounded-full bg-primary text-primary-foreground shadow-lg hover:bg-primary-hover">
         <MessageCircle size={26} strokeWidth={1.5} aria-hidden />
-      </a>
-    </>
+      </AgendarButton>
+    </AgendamentoProvider>
   );
 }
