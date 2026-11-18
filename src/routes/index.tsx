@@ -220,9 +220,9 @@ function Index() {
               <h1 className="mx-auto mt-6 max-w-3xl text-[2.5rem] leading-[1.08] md:mx-0 md:text-5xl">Cuidar do coração antes que ele dê sinais.</h1>
               <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-muted-foreground md:mx-0">Médica há mais de 20 anos, com atuação preventiva e atendimento particular feito com tempo, escuta e atenção.</p>
               <div className="mt-8 flex w-full flex-col justify-center gap-3 sm:w-auto sm:flex-row sm:flex-wrap md:justify-start">
-                <Button asChild className={`${btnPrimary} h-auto whitespace-normal shadow-none`}><a {...ext}>Agendar consulta</a></Button>
-                <Button asChild variant="outline" className={`${btnOutline} h-auto whitespace-normal shadow-none`}><a href="#cardio360">Conhecer o Cardio 360</a></Button>
-                <Button asChild variant="outline" className={`${btnOutline} h-auto whitespace-normal shadow-none`}><a href="#localizacao">Como chegar</a></Button>
+                <Button asChild className={`${btnPrimary} h-auto whitespace-normal px-4 shadow-none`}><a {...ext}>Agendar consulta</a></Button>
+                <Button asChild variant="outline" className={`${btnOutline} h-auto whitespace-normal px-4 shadow-none`}><a href="#cardio360">Conhecer o Cardio 360</a></Button>
+                <Button asChild variant="outline" className={`${btnOutline} h-auto whitespace-normal px-4 shadow-none`}><a href="#localizacao">Como chegar</a></Button>
               </div>
             </div>
             <div className="order-1 md:order-2"><HeroPhoto /></div>
