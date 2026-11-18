@@ -98,8 +98,8 @@ function Placeholder({ text, className }: { text: string; className: string }) {
 /** Foto do hero: arquivo em public/foto-dra-aline.jpg. Sem arquivo, aparece o placeholder. */
 const HERO_PHOTO_SRC = "/foto-dra-aline.jpg";
 const ARCH = "rounded-t-[999px] rounded-b-[14px]";
-/** Foto da seção Sobre: arquivo em public/foto-dra-alinee.jpg. Sem arquivo, aparece o placeholder. */
-const SOBRE_PHOTO_SRC = "/foto-dra-alinee.jpg";
+/** Foto da seção Sobre: arquivo em public/foto-dra-alineee.jpg. Sem arquivo, aparece o placeholder. */
+const SOBRE_PHOTO_SRC = "/foto-dra-alineee.jpg";
 function SobrePhoto() {
   const [failed, setFailed] = useState(false);
   const ref = useRef<HTMLImageElement>(null);
@@ -114,7 +114,7 @@ function SobrePhoto() {
         {failed ? (
           <Placeholder text="Foto da Dra. Aline no consultório" className="aspect-[3/4] w-full rounded-[14px]" />
         ) : (
-          <img ref={ref} src={SOBRE_PHOTO_SRC} alt="Dra. Aline Martins Dall'Orto sentada ao lado de um aparelho de ultrassonografia no consultório" onError={() => setFailed(true)} loading="lazy" className="aspect-[3/4] w-full object-cover object-center" />
+          <img ref={ref} src={SOBRE_PHOTO_SRC} alt="Dra. Aline Martins Dall'Orto de jaleco, realizando um exame de ultrassonografia no consultório" onError={() => setFailed(true)} loading="lazy" className="aspect-[3/4] w-full object-cover object-center" />
         )}
       </div>
     </div>
