@@ -5,11 +5,11 @@ describe("Valores da consulta", () => {
   it("consulta custa R$350,00", () => {
     expect(valoresConsulta.consultaCentavos).toBe(35000);
   });
-  it("sinal custa R$100,00", () => {
-    expect(valoresConsulta.sinalCentavos).toBe(10000);
+  it("sinal custa R$200,00", () => {
+    expect(valoresConsulta.sinalCentavos).toBe(20000);
   });
-  it("deduz o sinal do pagamento final, restando R$250,00", () => {
-    expect(saldoConsultaCentavos()).toBe(25000);
+  it("deduz o sinal do pagamento final, restando R$150,00", () => {
+    expect(saldoConsultaCentavos()).toBe(15000);
   });
   it("estorna o sinal em caso de cancelamento", () => {
     expect(valoresConsulta.estornarAoCancelar).toBe(true);

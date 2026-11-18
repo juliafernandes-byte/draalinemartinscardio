@@ -132,7 +132,10 @@ function AgendamentoForm({ origem }: { origem: Origem }) {
       <div ref={scrollRef} className="min-h-0 flex-1 overflow-y-auto overscroll-contain px-5 py-4 sm:px-6">
         {step === 3 && <div className="mb-4 flex gap-3 rounded-lg bg-navy-soft p-3 text-sm leading-relaxed text-foreground">
           <Info size={20} className="mt-0.5 shrink-0 text-navy" aria-hidden />
-          <p>A primeira consulta com a Dra. Aline é particular, sem pressa, e inclui avaliação completa do seu risco cardiovascular e um plano de cuidado feito para você. Presencial no Centro Clínico OHB ou online.{VALOR_CONSULTA !== null && ` Valor da consulta: ${formatarValorConsulta(VALOR_CONSULTA * 100)}.`}</p>
+          <div>
+            <p>A primeira consulta com a Dra. Aline é particular, sem pressa, e inclui avaliação completa do seu risco cardiovascular e um plano de cuidado feito para você. Presencial no Centro Clínico OHB ou online.{VALOR_CONSULTA !== null && ` Valor da consulta: ${formatarValorConsulta(VALOR_CONSULTA * 100)}.`}</p>
+            <p className="mt-3">Para garantir seu horário, é pago um sinal de {formatarValorConsulta(valoresConsulta.sinalCentavos)} no agendamento, abatido integralmente do valor da consulta.{valoresConsulta.estornarAoCancelar && " Se precisar cancelar, o sinal é devolvido;"}{valoresConsulta.manterSinalAoRemarcar && " se remarcar, ele continua válido."}</p>
+          </div>
         </div>}
         <h3 ref={stageRef} tabIndex={-1} className="mb-3 text-xl leading-tight focus:outline-none">{questions[step - 1]}</h3>
         {step === 1 && <fieldset aria-labelledby="quiz-motivos" aria-describedby={errors.motivos ? "motivos-error" : undefined}>

@@ -3,7 +3,7 @@ import { WHATSAPP_NUMBER } from "./whatsapp";
 
 export const valoresConsulta = {
   consultaCentavos: 35000,
-  sinalCentavos: 10000,
+  sinalCentavos: 20000,
   estornarAoCancelar: true,
   manterSinalAoRemarcar: true,
 };
