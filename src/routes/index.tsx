@@ -158,9 +158,9 @@ const publications: Publication[] = [
       "Análise comparativa de variáveis ecocardiográficas convencionais e de speckle tracking entre transplantados cardíacos sem rejeição e indivíduos saudáveis",
     original:
       "Comparative Analysis of Conventional and Speckle Tracking Echocardiographic Variables between Patients with Unrejected Heart Transplants and Healthy Individuals",
-    venue: "XXII Congresso de Cardiologia de Brasília · SBC/DF · 2022",
+    venue: "Arquivos Brasileiros de Cardiologia · 2024 · v. 121, n. 8",
     authorship:
-      "Trabalho premiado no congresso e publicado em 2024 nos Arquivos Brasileiros de Cardiologia (SBC), v. 121, n. 8. Dra. Aline é a primeira autora.",
+      "Primeira autora. Premiado como Melhor Tema Livre no XXII Congresso de Cardiologia de Brasília (SBC/DF, 2022).",
     url: "https://abccardiol.org/en/article/comparative-analysis-of-conventional-and-speckle-tracking-echocardiographic-variables-between-patients-with-unrejected-heart-transplants-and-healthy-individuals/",
     highlight: true,
     badge: "1º lugar · Melhor Tema Livre",
@@ -302,7 +302,7 @@ function Index() {
           <div className={wrap}>
             <p className="eyebrow">Consulta particular</p>
             <h2 className="mt-4 text-4xl leading-tight md:text-5xl">Uma consulta feita com tempo para você.</h2>
-            <p className="mt-6 max-w-3xl text-lg leading-relaxed text-muted-foreground">Na minha consulta, você não é só mais um horário na agenda. É o momento de olhar para a sua saúde do seu coração por inteiro.</p>
+            <p className="mt-6 max-w-3xl text-lg leading-relaxed text-muted-foreground">Na minha consulta, você não é só mais um horário na agenda. É o momento de olhar para a saúde do seu coração por inteiro.</p>
             <h3 className="mt-10 text-2xl">O que a consulta inclui</h3>
             <ul className="mt-5 grid gap-4 md:grid-cols-2">
               {["Escuta da sua história, rotina e hábitos", "Avaliação do seu risco cardiovascular", "Explicação clara dos exames e do tratamento", "Plano de cuidado individual, com foco em prevenção"].map(text => <li key={text} className="flex gap-3"><Check size={20} strokeWidth={1.5} className="shrink-0 text-primary" aria-hidden />{text}</li>)}
