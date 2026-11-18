@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
 import {
-  Smartphone, Mail, ExternalLink, FileText, ArrowUpRight, Clock, GraduationCap, Heart, Menu, MessageCircle, X, Instagram, MapPin, Phone, Video, Building2, Check, Award,
+  Smartphone, Mail, ExternalLink, FileText, ArrowUpRight, Clock, GraduationCap, Heart, Menu, MessageCircle, X, Instagram, MapPin, Phone, Video, Building2, Check, Award, Star,
 } from "lucide-react";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Logo } from "@/components/logo";
@@ -121,6 +121,31 @@ function SobrePhoto() {
   );
 }
 
+/** Avaliação do Google exibida abaixo da foto do hero. Valores provisórios — confirmar nota e total. */
+const GOOGLE_RATING = "5,0";
+const GOOGLE_REVIEWS = 27;
+const GOOGLE_REVIEWS_URL = "https://www.google.com/search?q=dra+aline+martins+cardiologista+brasilia";
+
+function GoogleRating() {
+  return (
+    <a
+      href={GOOGLE_REVIEWS_URL}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="relative mt-5 flex min-h-11 items-center justify-center gap-2 rounded-[14px] border border-primary/30 bg-background px-4 py-2 text-sm text-foreground transition-colors hover:border-primary/60"
+      aria-label={`Avaliação ${GOOGLE_RATING} de 5 no Google, com ${GOOGLE_REVIEWS} avaliações`}
+    >
+      <span className="flex gap-0.5 text-primary" aria-hidden>
+        {Array.from({ length: 5 }).map((_, i) => (
+          <Star key={i} size={16} fill="currentColor" strokeWidth={1.5} />
+        ))}
+      </span>
+      <span className="font-semibold">{GOOGLE_RATING}</span>
+      <span className="text-muted-foreground">· {GOOGLE_REVIEWS} avaliações no Google</span>
+    </a>
+  );
+}
+
 function HeroPhoto() {
   const [failed, setFailed] = useState(false);
   const ref = useRef<HTMLImageElement>(null);
@@ -138,6 +163,7 @@ function HeroPhoto() {
           <img ref={ref} src={HERO_PHOTO_SRC} alt="Dra. Aline Martins Dall'Orto, cardiologista, sentada no consultório" onError={() => setFailed(true)} className="aspect-[4/5] w-full object-cover object-top" />
         )}
       </div>
+      <GoogleRating />
     </div>
   );
 }
