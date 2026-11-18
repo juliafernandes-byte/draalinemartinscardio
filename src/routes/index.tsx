@@ -142,7 +142,7 @@ function HeroPhoto() {
   );
 }
 
-/** Trabalhos da Dra. Aline. `highlight: true` marca o card de destaque (largura total). */
+/** Trabalhos da Dra. Aline. `highlight: true` marca o card de destaque (selo, borda vinho, fundo navy-soft). */
 type Publication = {
   title: string;
   original: string;
@@ -276,27 +276,21 @@ function Index() {
             <p className="eyebrow">Produção científica</p>
             <h2 className="mt-4 text-4xl leading-tight md:text-5xl">Trabalhos publicados</h2>
             <p className="mt-6 max-w-2xl text-lg leading-relaxed text-muted-foreground">Pesquisa em ecocardiografia avançada e transplante cardíaco, publicada em revistas nacionais e internacionais.</p>
-            {publications.filter(p => p.highlight).map((pub) => (
-              <article key={pub.url} className="mt-10 rounded-[14px] border border-border border-l-4 border-l-primary bg-navy-soft p-6 md:p-8">
-                <span className="inline-flex items-center gap-2 rounded-full bg-primary px-3.5 py-1.5 text-[13px] font-semibold leading-none text-primary-foreground">
-                  <Award size={16} strokeWidth={1.5} aria-hidden />{pub.badge}
-                </span>
-                <p className="mt-4 text-sm text-muted-foreground">{pub.venue}</p>
-                <h3 className="mt-2 text-2xl leading-snug md:text-3xl">{pub.title}</h3>
-                <p className="mt-3 leading-relaxed text-muted-foreground">{pub.authorship}</p>
-                <p className="mt-3 text-sm italic leading-relaxed text-muted-foreground">{pub.original}</p>
-                <a href={pub.url} target="_blank" rel="noopener noreferrer" className="mt-5 inline-flex min-h-11 items-center gap-1.5 font-semibold text-primary hover:underline">Ler publicação<ArrowUpRight size={16} aria-hidden /></a>
-              </article>
-            ))}
-            <div className="mt-5 grid gap-5 md:grid-cols-2">
-              {publications.filter(p => !p.highlight).map((pub) => (
-                <article key={pub.url} className="flex flex-col rounded-[14px] border border-border p-6">
-                  <FileText className="text-primary" size={26} strokeWidth={1.5} aria-hidden />
-                  <h3 className="mt-4 text-xl leading-snug">{pub.title}</h3>
-                  <p className="mt-2 text-sm text-muted-foreground">{pub.venue}</p>
-                  <p className="mt-1 text-sm text-muted-foreground">{pub.authorship}</p>
-                  <p className="mt-2 text-sm italic leading-relaxed text-muted-foreground">{pub.original}</p>
-                  <a href={pub.url} target="_blank" rel="noopener noreferrer" className="mt-auto inline-flex min-h-11 items-center gap-1.5 pt-3 font-semibold text-primary hover:underline">Ler publicação<ArrowUpRight size={16} aria-hidden /></a>
+            <div className="mt-10 grid gap-5 md:grid-cols-3">
+              {publications.map((pub) => (
+                <article key={pub.url} className={`flex flex-col rounded-[14px] border border-border p-5 ${pub.highlight ? "border-l-4 border-l-primary bg-navy-soft" : ""}`}>
+                  {pub.highlight ? (
+                    <span className="inline-flex w-fit items-center gap-2 rounded-full bg-primary px-3 py-1.5 text-[12px] font-semibold leading-none text-primary-foreground">
+                      <Award size={14} strokeWidth={1.5} aria-hidden />{pub.badge}
+                    </span>
+                  ) : (
+                    <FileText className="text-primary" size={22} strokeWidth={1.5} aria-hidden />
+                  )}
+                  <p className="mt-3 text-xs text-muted-foreground">{pub.venue}</p>
+                  <h3 className="mt-1.5 text-base leading-snug">{pub.title}</h3>
+                  <p className="mt-2 text-xs leading-relaxed text-muted-foreground">{pub.authorship}</p>
+                  <p className="mt-2 text-xs italic leading-relaxed text-muted-foreground">{pub.original}</p>
+                  <a href={pub.url} target="_blank" rel="noopener noreferrer" className="mt-auto inline-flex min-h-11 items-center gap-1.5 pt-3 text-sm font-semibold text-primary hover:underline">Ler publicação<ArrowUpRight size={14} aria-hidden /></a>
                 </article>
               ))}
             </div>
