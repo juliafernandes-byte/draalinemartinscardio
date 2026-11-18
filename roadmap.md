@@ -16,3 +16,5 @@
 - [x] Criar duas etapas acessíveis, validação, aviso de urgência e confirmação sem guardar respostas.
 - [x] Integrar todos os convites de consulta, preservando os links do Cardio 360.
 - [x] Testar mensagem, origem, envio e apresentação em computador e 390px.
+# Sinal para agendamento
+- [ ] Incluir exigência de sinal deduzido do pagamento final; aguarda valor, forma de cobrança e política de cancelamento/remarcação.
