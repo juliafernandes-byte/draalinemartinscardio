@@ -17,4 +17,5 @@
 - [x] Integrar todos os convites de consulta, preservando os links do Cardio 360.
 - [x] Testar mensagem, origem, envio e apresentação em computador e 390px.
 # Sinal para agendamento
-- [ ] Incluir exigência de sinal deduzido do pagamento final; aguarda valor, forma de cobrança e política de cancelamento/remarcação.
+- [x] Informar no formulário consulta de R$350,00, sinal de R$100,00 e saldo de R$250,00; equipe combina horário e orienta pagamento pelo WhatsApp.
+- [x] Informar estorno do sinal em cancelamentos e manutenção da validade em remarcações.

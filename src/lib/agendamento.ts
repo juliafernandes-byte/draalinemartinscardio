@@ -1,6 +1,21 @@
 import { z } from "zod";
 import { WHATSAPP_NUMBER } from "./whatsapp";
 
+export const valoresConsulta = {
+  consultaCentavos: 35000,
+  sinalCentavos: 10000,
+  estornarAoCancelar: true,
+  manterSinalAoRemarcar: true,
+};
+
+export function saldoConsultaCentavos() {
+  return valoresConsulta.consultaCentavos - valoresConsulta.sinalCentavos;
+}
+
+export function formatarValorConsulta(centavos: number) {
+  return new Intl.NumberFormat("pt-BR", { style: "currency", currency: "BRL" }).format(centavos / 100);
+}
+
 export const motivos = ["Check-up preventivo", "Pressão ou colesterol", "Menopausa e coração", "Avaliação antes de treinar", "Acompanhamento pelo Cardio 360", "Outro", "Prefiro contar na consulta"] as const;
 
 export const identidadeSchema = z.object({

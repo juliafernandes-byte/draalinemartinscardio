@@ -1,5 +1,23 @@
 import { describe, expect, it } from "vitest";
-import { agendamentoSchema, identidadeSchema, mascararWhatsApp, montarMensagem, montarWhatsAppUrl, origemDaBusca } from "./agendamento";
+import { agendamentoSchema, identidadeSchema, mascararWhatsApp, montarMensagem, montarWhatsAppUrl, origemDaBusca, valoresConsulta, saldoConsultaCentavos } from "./agendamento";
+
+describe("Valores da consulta", () => {
+  it("consulta custa R$350,00", () => {
+    expect(valoresConsulta.consultaCentavos).toBe(35000);
+  });
+  it("sinal custa R$100,00", () => {
+    expect(valoresConsulta.sinalCentavos).toBe(10000);
+  });
+  it("deduz o sinal do pagamento final, restando R$250,00", () => {
+    expect(saldoConsultaCentavos()).toBe(25000);
+  });
+  it("estorna o sinal em caso de cancelamento", () => {
+    expect(valoresConsulta.estornarAoCancelar).toBe(true);
+  });
+  it("mantém o sinal válido ao remarcar", () => {
+    expect(valoresConsulta.manterSinalAoRemarcar).toBe(true);
+  });
+});
 
 const base = { nome: "Ana Maria", whatsapp: "(61) 99999-1234", tipo: "primeira", modalidade: "online", periodo: "manha", consentimento: true };
 describe("Mensagem de agendamento", () => {

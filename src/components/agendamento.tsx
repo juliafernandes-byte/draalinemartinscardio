@@ -4,7 +4,7 @@ import { Button, type ButtonProps } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogDescription, DialogTitle } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { Checkbox } from "@/components/ui/checkbox";
-import { agendamentoSchema, identidadeSchema, mascararWhatsApp, montarWhatsAppUrl, motivos, origemDaBusca, origemSchema, preferenciasSchema, type Origem } from "@/lib/agendamento";
+import { agendamentoSchema, identidadeSchema, mascararWhatsApp, montarWhatsAppUrl, motivos, origemDaBusca, origemSchema, preferenciasSchema, valoresConsulta, saldoConsultaCentavos, formatarValorConsulta, type Origem } from "@/lib/agendamento";
 
 const Context = createContext<(() => void) | null>(null);
 const originKey = "agendamento_origem";
@@ -120,8 +120,19 @@ function AgendamentoForm({ origem }: { origem: Origem }) {
       {successUrl ? <div className="py-8 text-center">
         <CheckCircle size={48} className="mx-auto text-primary" aria-hidden />
         <h3 ref={stageRef} tabIndex={-1} className="mt-5 text-2xl leading-snug focus:outline-none">Pronto! Finalize o envio no WhatsApp.</h3>
+        <p className="mt-4 text-sm leading-relaxed text-muted-foreground">A equipe combinará o horário e enviará os dados para pagamento do sinal de {formatarValorConsulta(valoresConsulta.sinalCentavos)}. A reserva na agenda será assegurada após a confirmação do pagamento pela equipe.</p>
         <Button asChild variant="link" className="mt-5 h-auto min-h-11 whitespace-normal text-base"><a href={successUrl} target="_blank" rel="noopener noreferrer">Abrir WhatsApp de novo<MessageCircle aria-hidden /></a></Button>
       </div> : <form noValidate onSubmit={event => { event.preventDefault(); validate(step === 1); }}>
+        <div className="mb-5 border-l-4 border-primary bg-navy-soft p-4 text-sm leading-relaxed">
+          <p className="font-semibold text-navy">Sinal para reservar sua consulta</p>
+          <dl className="mt-3 space-y-1 text-foreground">
+            <div className="flex flex-wrap justify-between gap-x-4"><dt>Valor da consulta</dt><dd className="font-semibold">{formatarValorConsulta(valoresConsulta.consultaCentavos)}</dd></div>
+            <div className="flex flex-wrap justify-between gap-x-4"><dt>Sinal para agendamento</dt><dd className="font-semibold">{formatarValorConsulta(valoresConsulta.sinalCentavos)}</dd></div>
+            <div className="flex flex-wrap justify-between gap-x-4"><dt>Saldo no pagamento final</dt><dd className="font-semibold">{formatarValorConsulta(saldoConsultaCentavos())}</dd></div>
+          </dl>
+          <p className="mt-3 text-muted-foreground">O sinal é descontado do valor final da consulta. A equipe combina o horário e envia os dados para pagamento pelo WhatsApp. A reserva na agenda é assegurada após a confirmação do pagamento pela equipe.</p>
+          <p className="mt-2 text-muted-foreground">{valoresConsulta.estornarAoCancelar && "Em caso de cancelamento, o sinal é estornado. "}{valoresConsulta.manterSinalAoRemarcar && "Se remarcar, o sinal continua válido."}</p>
+        </div>
         <p className="text-sm font-semibold text-teal" aria-live="polite">{step} de 2</p>
         <h3 ref={stageRef} tabIndex={-1} className="mb-5 mt-2 text-2xl focus:outline-none">{step === 1 ? "Quem é você" : "Como prefere"}</h3>
         <div className="space-y-5">
