@@ -178,8 +178,8 @@ function Index() {
       <main id="inicio" className="pt-[76px] text-foreground">
         {/* Hero */}
         <section className="section-pad">
-          <div className={`${wrap} grid items-center gap-10 md:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] md:gap-14`}>
-            <div className="order-2 text-center md:order-1 md:text-left">
+          <div className={`${wrap} grid grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] items-center gap-6 md:gap-14`}>
+            <div className="text-center md:text-left">
               <p className="font-brand text-xl font-medium uppercase text-navy md:text-2xl">Dra. Aline Martins Dall'Orto</p>
               <p className="eyebrow mt-3">Cardiologista · Prevenção e longevidade</p>
               <p className="mt-2 text-sm text-muted-foreground">CRM-DF 15170 · RQE 10578 / 10577</p>
@@ -194,7 +194,7 @@ function Index() {
                 {["Mais de 20 anos de formada", "Consulta sem pressa"].map(text => <li key={text} className="flex items-center gap-2"><Check size={16} className="shrink-0 text-primary" strokeWidth={1.5} aria-hidden />{text}</li>)}
               </ul>
             </div>
-            <div className="order-1 md:order-2"><HeroPhoto /></div>
+            <div><HeroPhoto /></div>
           </div>
         </section>
 
