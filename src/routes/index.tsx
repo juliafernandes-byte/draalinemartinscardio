@@ -1,11 +1,11 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
 import {
-  Smartphone, Mail, ExternalLink, FileText, ArrowUpRight, Clock, GraduationCap, Heart, Menu, MessageCircle, X, Instagram, MapPin, Phone, Video, Building2, Check, Award, Star,
+  Smartphone, Mail, FileText, ArrowUpRight, Clock, GraduationCap, Heart, Menu, MessageCircle, X, Instagram, MapPin, Phone, Video, Building2, Check, Award, Star,
 } from "lucide-react";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Logo } from "@/components/logo";
-import { whatsappUrl, WHATSAPP_DISPLAY, EMAIL, ADDRESS_LINE_1, ADDRESS_LINE_2, MAPS_URL, MAPS_EMBED_URL } from "@/lib/whatsapp";
+import { whatsappUrl, WHATSAPP_DISPLAY, EMAIL, ADDRESS_LINE_1, ADDRESS_LINE_2, MAPS_EMBED_URL } from "@/lib/whatsapp";
 import { Button } from "@/components/ui/button";
 import { Cardio360 } from "@/components/cardio360";
 
@@ -420,9 +420,7 @@ function Index() {
               <ul className="space-y-4 text-muted-foreground">
                 <li className="flex gap-3"><MapPin size={20} strokeWidth={1.5} className="mt-0.5 shrink-0 text-primary" aria-hidden /><span><span className="font-semibold text-foreground">{ADDRESS_LINE_1}</span><br />{ADDRESS_LINE_2}</span></li>
                 <li><Button asChild variant="link" className="h-auto min-h-11 justify-start gap-3 px-0 text-base text-muted-foreground hover:text-primary"><a href={whatsappUrl} target="_blank" rel="noopener noreferrer"><Phone size={20} strokeWidth={1.5} className="shrink-0 text-primary" aria-hidden />{WHATSAPP_DISPLAY}</a></Button></li>
-                <li><Button asChild className={`${btnPrimary} h-auto shadow-none`}><a href={whatsappUrl} target="_blank" rel="noopener noreferrer">Agendar consulta</a></Button></li>
                 <li><a href={`mailto:${EMAIL}`} className="flex min-h-11 items-center gap-3 break-all hover:text-primary"><Mail size={20} strokeWidth={1.5} className="shrink-0 text-primary" aria-hidden />{EMAIL}</a></li>
-                <li><Button asChild variant="outline" className={`${btnOutline} h-auto whitespace-normal shadow-none`}><a href={MAPS_URL} target="_blank" rel="noopener noreferrer">Abrir no Google Maps<ExternalLink size={16} aria-hidden /></a></Button></li>
               </ul>
               <iframe src={MAPS_EMBED_URL} title="Mapa: Centro Clínico OHB, Asa Sul, Brasília" loading="lazy" referrerPolicy="no-referrer-when-downgrade" className="h-[360px] w-full rounded-[14px] border border-border" />
             </div>
