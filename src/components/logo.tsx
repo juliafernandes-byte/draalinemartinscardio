@@ -1,13 +1,10 @@
-import symbolAsset from "@/assets/logo-simbolo.png.asset.json";
-import fullAsset from "@/assets/logo-completo-web.png.asset.json";
-
 /**
- * Marca da Dra. Aline. Os arquivos oficiais estão na CDN do projeto:
+ * Marca da Dra. Aline. Os arquivos oficiais são públicos e portáveis:
  * - SYMBOL_SRC = símbolo (ícone no header)
  * - FULL_SRC = logo completa (rodapé)
  */
-const SYMBOL_SRC: string = symbolAsset.url;
-const FULL_SRC: string = fullAsset.url;
+const SYMBOL_SRC = "/logo-simbolo.png";
+const FULL_SRC = "/logo-completo-web.png";
 
 export function Logo({ variant = "header" }: { variant?: "header" | "footer" }) {
   if (variant === "footer") {

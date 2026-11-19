@@ -32,5 +32,6 @@ use the editor.
 ## Project architecture
 - Keep the monitoring product presentation in a browser-safe presentational component; the phone is a noninteractive HTML/CSS illustration, not a working app.
 - Centralize consultation and monitoring WhatsApp destinations in the shared link module so each inquiry retains its intended message.
-- Keep the brand mark in the shared Logo component, fed by the official logo files served through CDN asset pointers; keep the footer on a light background because the official lockup's lettering is dark.
+- Keep the brand mark in the shared Logo component, using official images under public/ so both hosting targets work; keep the footer light because the lockup's lettering is dark.
 - Consultation inquiry buttons link straight to the shared WhatsApp URL (new tab, noopener); there is no scheduling form — the client removed it in favor of direct WhatsApp contact.
+- Enable static prerendering only through build:static with STATIC_EXPORT; emit public files to dist/static and temporary SSR files separately, preserving the normal Lovable build.
