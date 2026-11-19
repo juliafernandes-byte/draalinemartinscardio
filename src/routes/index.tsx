@@ -122,9 +122,7 @@ function SobrePhoto() {
   );
 }
 
-/** Avaliação do Google exibida abaixo da foto do hero. Valores provisórios — confirmar nota e total. */
-const GOOGLE_RATING = "5,0";
-const GOOGLE_REVIEWS = 27;
+/** Avaliação do Google exibida abaixo da foto do hero: apenas as 5 estrelas. */
 const GOOGLE_REVIEWS_URL = "https://www.google.com/search?q=dra+aline+martins+cardiologista+brasilia";
 
 function GoogleRating() {
@@ -134,15 +132,13 @@ function GoogleRating() {
       target="_blank"
       rel="noopener noreferrer"
       className="relative mt-5 flex min-h-11 items-center justify-center gap-2 rounded-[14px] border border-primary/30 bg-background px-4 py-2 text-sm text-foreground transition-colors hover:border-primary/60"
-      aria-label={`Avaliação ${GOOGLE_RATING} de 5 no Google, com ${GOOGLE_REVIEWS} avaliações`}
+      aria-label="Avaliação 5 de 5 estrelas no Google"
     >
       <span className="flex gap-0.5 text-primary" aria-hidden>
         {Array.from({ length: 5 }).map((_, i) => (
           <Star key={i} size={16} fill="currentColor" strokeWidth={1.5} />
         ))}
       </span>
-      <span className="font-semibold">{GOOGLE_RATING}</span>
-      <span className="text-muted-foreground">· {GOOGLE_REVIEWS} avaliações no Google</span>
     </a>
   );
 }
