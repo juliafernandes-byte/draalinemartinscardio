@@ -11,3 +11,6 @@ export const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURICom
 export const WHATSAPP_CARDIO_MESSAGE =
   "Olá! Quero saber mais sobre o Cardio 360 da Dra. Aline.";
 export const whatsappCardioUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_CARDIO_MESSAGE)}`;
+export const WHATSAPP_MEDICO_MESSAGE =
+  "Olá! Sou médico e gostaria de adquirir o Cardio 360 para acompanhar os meus pacientes.";
+export const whatsappMedicoUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_MEDICO_MESSAGE)}`;

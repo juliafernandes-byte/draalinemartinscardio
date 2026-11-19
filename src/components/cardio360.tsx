@@ -3,7 +3,7 @@ import Autoplay from "embla-carousel-autoplay";
 import { Bell, ClipboardList, Activity, Moon, ArrowUpRight, ArrowLeft, ArrowRight, Pause, Play } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Carousel, CarouselContent, CarouselItem, useCarousel, type CarouselApi } from "@/components/ui/carousel";
-import { whatsappCardioUrl, whatsappUrl } from "@/lib/whatsapp";
+import { whatsappCardioUrl, whatsappMedicoUrl, whatsappUrl } from "@/lib/whatsapp";
 
 const steps = [
   { n: "01", title: "Consulta inicial", text: "Avaliação completa do seu risco cardiovascular e definição do seu plano de cuidado." },
@@ -202,9 +202,10 @@ export function Cardio360() {
 
         <div className="mt-16">
           <h3 className="text-3xl">Para quem é</h3>
-          <div className="mt-8 grid gap-5 md:grid-cols-2">
+          <div className="mt-8 grid gap-5 md:grid-cols-3">
             <article className="rounded-[14px] bg-ink-foreground/[0.06] p-8"><h4 className="font-display text-2xl">Já é paciente da Dra. Aline</h4><p className="mt-3 leading-relaxed text-ink-foreground/85">Passe a ser acompanhado entre as consultas.</p><Button variant="link" asChild className="mt-4 h-auto min-h-11 whitespace-normal px-0 text-base text-blush"><a href={whatsappCardioUrl} target="_blank" rel="noopener noreferrer">Quero ativar<ArrowUpRight aria-hidden /></a></Button></article>
             <article className="rounded-[14px] bg-ink-foreground/[0.06] p-8"><h4 className="font-display text-2xl">Ainda não é paciente</h4><p className="mt-3 leading-relaxed text-ink-foreground/85">Agende sua consulta inicial e comece seu acompanhamento já com o aplicativo.</p><Button variant="link" asChild className="mt-4 h-auto min-h-11 whitespace-normal px-0 text-base text-blush"><a href={whatsappUrl} target="_blank" rel="noopener noreferrer">Agendar consulta inicial<ArrowUpRight aria-hidden /></a></Button></article>
+            <article className="rounded-[14px] bg-ink-foreground/[0.06] p-8"><h4 className="font-display text-2xl">É médico</h4><p className="mt-3 leading-relaxed text-ink-foreground/85">Gostaria de adquirir o Cardio 360 para acompanhar os seus pacientes.</p><Button variant="link" asChild className="mt-4 h-auto min-h-11 whitespace-normal px-0 text-base text-blush"><a href={whatsappMedicoUrl} target="_blank" rel="noopener noreferrer">Quero adquirir<ArrowUpRight aria-hidden /></a></Button></article>
           </div>
         </div>
 
