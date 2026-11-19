@@ -25,3 +25,5 @@
 - [x] Conferir envio e apresentação em computador e 390px.
 # Atualização do sinal
 - [x] Atualizar sinal para R$200,00 e saldo para R$150,00, incluir condições no passo 3 e conferir testes e celular.
+# Remoção do formulário
+- [x] Remover o quiz de agendamento e ligar todos os botões "Agendar consulta" direto ao WhatsApp.
