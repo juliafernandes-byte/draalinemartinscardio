@@ -291,7 +291,7 @@ function Index() {
                 {[
                   "Graduação em Medicina pela Universidade Federal do Pará, com destaque acadêmico",
                   "Residência em Clínica Médica pela Secretaria de Saúde do Distrito Federal (SES-DF)",
-                  "Residência em Cardiologia pela Universidade de Brasília (UnB) e Instituto de Cardiologia e Transplante do Distrito Federal (ICTDF)",
+                  "Residência em Cardiologia pela Universidade de Brasília (UnB) e Instituto de Cardiologia e Transplantes do Distrito Federal (ICTDF)",
                   "Residência em Ecocardiografia pelo ICTDF",
                   "Mestrado em Ciências Médicas pela Universidade de Brasília (UnB)",
                   "Título de especialista em Cardiologia e Ecocardiografia pela Sociedade Brasileira de Cardiologia (SBC)",
