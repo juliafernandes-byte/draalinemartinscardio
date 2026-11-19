@@ -407,7 +407,6 @@ function Index() {
         <section id="localizacao" className="section-pad pt-0 md:pt-0">
           <div className={wrap}>
             <p className="eyebrow">Localização</p>
-            <h2 className="mt-4 text-4xl leading-tight md:text-5xl">Onde atendo</h2>
             <div className="mt-8 grid gap-8 md:grid-cols-[1fr_1.6fr] md:items-start">
               <ul className="space-y-4 text-muted-foreground">
                 <li className="flex gap-3"><MapPin size={20} strokeWidth={1.5} className="mt-0.5 shrink-0 text-primary" aria-hidden /><span><span className="font-semibold text-foreground">{ADDRESS_LINE_1}</span><br />{ADDRESS_LINE_2}</span></li>
