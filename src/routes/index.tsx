@@ -229,7 +229,7 @@ const faqs = [
   { q: "O que levar na primeira consulta?", a: "Histórico familiar completo, relato dos seus sintomas e exames laboratoriais e de imagem anteriores." },
   { q: "O que é o Cardio 360?", a: "É um programa de acompanhamento cardiovascular em que a Dra. Aline se conecta com você por um aplicativo, para monitorar de perto sua saúde cardiovascular e intervir precocemente, com foco na prevenção de doenças." },
   { q: "Quem pode usar o Cardio 360?", a: "Pacientes da Dra. Aline — quem já está em acompanhamento e quem está começando. O acesso é liberado após a consulta inicial." },
-  { q: "O aplicativo substitui a consulta?", a: "Não. Ele complementa o cuidado: as consultas continuam, e o aplicativo mantém você e a médica conectadas no intervalo entre elas." },
+  { q: "O aplicativo substitui a consulta?", a: "Não. Ele complementa o cuidado: as consultas continuam, e o aplicativo mantém você e a médica conectados no intervalo entre elas." },
 ];
 
 function Index() {
