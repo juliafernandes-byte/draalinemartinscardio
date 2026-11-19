@@ -212,7 +212,7 @@ const publications: Publication[] = [
 
 const diffs = [
   { icon: Clock, t: "Consulta sem pressa", d: "Tempo para entender sua história, seus hábitos e suas dúvidas — e explicar cada exame com clareza." },
-  { icon: GraduationCap, t: "Experiência e formação", d: "Mais de 20 anos de formada em Medicina, com residências em Clínica Médica, Cardiologia e Ecocardiografia e mestrado pela UnB." },
+  { icon: GraduationCap, t: "Experiência e formação", d: "Graduada em Medicina há mais de 20 anos, com residências em Clínica Médica, Cardiologia e Ecocardiografia, além de mestrado pela UnB." },
   { icon: Heart, t: "Prevenção e longevidade", d: "Cuidado pensado para você viver mais e melhor, com hábitos possíveis na sua rotina." },
   { icon: Smartphone, t: "Acompanhamento pelo app", d: "Com o Cardio 360, a Dra. Aline segue com você entre uma consulta e outra." },
 ];
